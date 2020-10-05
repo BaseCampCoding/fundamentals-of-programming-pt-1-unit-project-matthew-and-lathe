@@ -16,16 +16,18 @@ def makeNewDeck () -> list:
 def printCard (card: list) -> None:
     """This function prints the specially formatted cards
     >>> printCard(['♠', 'A'])
-    ####
-    #A #
-    # ♠#
-    ####
+    #####
+    #A  #
+    #   #
+    #  ♠#
+    #####
     
     """
     newString = f"""
-    ####
-    #{card[1]} #
-    # {card[0]}#
-    ####
+    #####
+    #{card[1]}  #
+    #   #
+    #  {card[0]}#
+    #####
     """
     print(newString)
