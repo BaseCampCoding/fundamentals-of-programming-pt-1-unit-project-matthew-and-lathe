@@ -1,3 +1,3 @@
 import cards
 
-cards.makeNewDeck()
+newdeck = cards.makeNewDeck()
