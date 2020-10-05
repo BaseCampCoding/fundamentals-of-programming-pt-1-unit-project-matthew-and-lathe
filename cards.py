@@ -1,12 +1,5 @@
-from dataclasses import dataclass
 from random import shuffle
 # ♣, ♦, ♥, ♠
-@dataclass
-class Card ():
-    rank: str
-    suit: str
-
-
 def makeNewDeck () -> list:
     """This functions takes in no data, but returns a shuffled deck, in which is stored
     as a 2D List, with the first element of every sublist being the suit, and the second
@@ -20,4 +13,14 @@ def makeNewDeck () -> list:
     shuffle(newDeck)
     return newDeck
 
-    
+def printCard (card: list) -> None:
+    """This function prints the specially formatted cards"""
+    newString = f"""
+    ####
+    #{card[1]} #
+    # {card[0]}#
+    ####
+    """
+    print(newString)
+
+printCard(['♠', 'A'])
