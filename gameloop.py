@@ -1,0 +1,3 @@
+import cards
+
+cards.makeNewDeck()
