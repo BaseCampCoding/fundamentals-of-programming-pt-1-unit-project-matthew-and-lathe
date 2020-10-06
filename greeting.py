@@ -1,3 +1,6 @@
+import doclear
+
+
 def hello_player():
     bigwelcome = """
     #####    #        #######  #######  #     #      #####   #######  #######  #     #
