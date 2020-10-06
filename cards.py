@@ -1,11 +1,12 @@
 from random import shuffle
+
 # ♣, ♦, ♥, ♠
-def make_new_deck () -> list:
+def make_new_deck() -> list:
     """This function takes in no data, but returns a shuffled deck, in which is stored
     as a 2D List, with the first element of every sublist being the suit, and the second
     element being the rank, both being strings"""
-    RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-    SUITS = ['♣', '♦', '♥', '♠']
+    RANKS = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+    SUITS = ["♣", "♦", "♥", "♠"]
     new_deck = []
     for s in SUITS:
         for r in RANKS:
@@ -13,7 +14,8 @@ def make_new_deck () -> list:
     shuffle(new_deck)
     return new_deck
 
-def print_card (card: list) -> str:
+
+def print_card(card: list) -> str:
     """This function prints the specially formatted cards
     >>> printCard(['♠', 'A'])
     #####
@@ -21,7 +23,7 @@ def print_card (card: list) -> str:
     #   #
     #  ♠#
     #####
-    
+
     """
     new_string = ""
     if not card:
@@ -32,7 +34,7 @@ def print_card (card: list) -> str:
         #♦+♣#
         #####
         """
-    elif card[1] != '10':
+    elif card[1] != "10":
         new_string = f"""
         #####
         #{card[1]}  #
@@ -50,18 +52,19 @@ def print_card (card: list) -> str:
         """
     return new_string
 
+
 def get_hand_value(cards: list) -> int:
     """takes in a hand's cards and determines the value of the hand"""
     has_seen_ace = 0
     value = 0
     for c in cards:
-        if c[1] == 'A':
+        if c[1] == "A":
             has_seen_ace += 1
-        elif c[1] == 'K':
+        elif c[1] == "K":
             value += 10
-        elif c[1] == 'Q':
+        elif c[1] == "Q":
             value += 10
-        elif c[1] == 'J':
+        elif c[1] == "J":
             value += 10
         else:
             value += int(c[1])
