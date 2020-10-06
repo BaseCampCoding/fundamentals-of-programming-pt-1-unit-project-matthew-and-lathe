@@ -29,16 +29,67 @@ def add_to_hand(
         display_hands.append(cards.print_card([]))
 
 
-def dealer_ai(value: int) -> bool:
+def dealer_ai(value: int, difficulty: int) -> bool:
     """This function will take in the current card value, and return on whether the dealer
     should hit or stand depending on this value. False is for standing, True is for hitting."""
-    diff = 22 - value
-    random_value = randint(1, diff)
-    if random_value == diff:
-        return False
-    else:
+    if value <= 10:
         return True
-
+    elif value <= 13:
+        random_value = randint(1, 2)
+        if random_value == 2:
+            return False
+        else:
+            return True
+    elif value <= 14:
+        if difficulty == 0:
+            return True
+        else:
+            random_value = randint(1, 20)
+            if random_value == 20:
+                return False
+            else:
+                return True
+    elif value <= 17:
+        if difficulty == 0:
+            random_value = randint(1, 5)
+            if random_value == 5:
+                return True
+            else:
+                return False
+        elif difficulty == 1:
+            random_value = randint(1, 10)
+            if random_value == 10:
+                return True
+            else:
+                return False
+        else:
+            random_value = randint(1, 15)
+            if random_value == 10:
+                return True
+            else:
+                return False
+    elif value <= 20:
+        if difficulty == 0:
+            random_value = randint(1, 15)
+            if random_value == 10:
+                return True
+            else:
+                return False
+        else:
+            random_value = randint(1, 100)
+            if random_value == 10:
+                return True
+            else:
+                return False
+    elif value == 21:
+        if difficulty == 0:
+            random_value = randint(1, 1000)
+            if random_value == 10:
+                return True
+            else:
+                return False
+        else:
+            return False
 
 def play_round(difficulty: int) -> int:
     """This function is the main game loop itself: it is responsible for I/O, and also
@@ -80,7 +131,7 @@ def play_round(difficulty: int) -> int:
         print("Dealer is deciding...")
         sleep(2)
         dealer_hand_value = cards.get_hand_value(dealer_hands)
-        choice = dealer_ai(dealer_hand_value)
+        choice = dealer_ai(dealer_hand_value, difficulty)
         if choice == False:
             break
         else:
