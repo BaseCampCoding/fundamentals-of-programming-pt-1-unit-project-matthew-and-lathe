@@ -1,5 +1,5 @@
 import cards
-
+import doclear
 
 def show_cards(d_hand: list, p_hand: list) -> None:
     """Simply prints out the player and dealer's hands"""
@@ -47,6 +47,7 @@ def play_round():
             hand_value = cards.get_hand_value(hands)
         if player_choice == "stand":
             break
+        doclear.clear()
     hand_value = cards.get_hand_value(hands)
     print(f"Hand's Value: {hand_value}")
 
