@@ -18,5 +18,5 @@ def hello_player():
     Good luck.
     """
     print(mission_statement)
-    input("Press any key to play")
+    input("Press any key to play ")
     doclear.clear()
