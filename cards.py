@@ -54,13 +54,21 @@ def get_hand_value(cards: list) -> int:
     """takes in a hand's cards and determines the value of the hand"""
     has_seen_ace = 0
     value = 0
-    for card in cards:
-        if card[1] == 'A':
+    for c in cards:
+        if c[1] == 'A':
             has_seen_ace += 1
-        elif card[1] == 'K' or card[1] == 'Q' or card[1] == 'J':
+            print("ACE CARD")
+        elif c[1] == 'K':
             value += 10
+            print("FACE CARD")
+        elif c[1] == 'Q':
+            value += 10
+            print("FACE CARD")
+        elif c[1] == 'J':
+            value += 10
+            print("FACE CARD")
         else:
-            value += int(card[1])
+            value += int(c[1])
     while has_seen_ace > 0:
         if (value + 11) > 21:
             value += 1
