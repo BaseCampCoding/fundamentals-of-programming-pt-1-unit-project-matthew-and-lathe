@@ -41,7 +41,7 @@ def dealer_ai(value: int) -> bool:
 
 
 def play_round(difficulty: int) -> int:
-    """This function is the main game loop itself: it is responsible for I/O, and also 
+    """This function is the main game loop itself: it is responsible for I/O, and also
     calling in helper functions. Intakes dealer difficulty and returns who won (or if
     it was a tie)"""
     new_deck = cards.make_new_deck()
@@ -73,7 +73,6 @@ def play_round(difficulty: int) -> int:
         doclear.clear()
     hand_value = cards.get_hand_value(hands)
 
-
     # this section starts the dealer's turn
     dealer_hand_value = 0
     while dealer_hand_value <= 21 and hand_value <= 21:
@@ -93,9 +92,9 @@ def play_round(difficulty: int) -> int:
     if hand_value > 21:
         print("You have busted!")
     if dealer_hand_value > 21:
-        print ("Dealer has busted!")
-    if dealer_hand_value = hand_value:
-        print ('Tie!')
+        print("Dealer has busted!")
+    if dealer_hand_value == hand_value:
+        print("Tie!")
     show_cards(display_dealer_hands, display_hands)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
     status = 0
