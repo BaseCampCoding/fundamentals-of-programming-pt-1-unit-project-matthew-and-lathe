@@ -69,8 +69,7 @@ def play_round():
             break
         doclear.clear()
     hand_value = cards.get_hand_value(hands)
-    if hand_value > 21:
-        print("You have busted!")
+
 
     # this section starts the dealer's turn
     dealer_hand_value = 0
@@ -88,5 +87,7 @@ def play_round():
             doclear.clear()
     dealer_hand_value = cards.get_hand_value(dealer_hands)
     doclear.clear()
+    if hand_value > 21:
+        print("You have busted!")
     show_cards(display_dealer_hands, display_hands)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
