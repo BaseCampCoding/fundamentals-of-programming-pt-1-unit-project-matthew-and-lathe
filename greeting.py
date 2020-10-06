@@ -31,4 +31,15 @@ def hello_player():
     """
     print(characters)
     difficulty_selection = input("Choose your dealer with their corresponding number:")
+    if doclear.RepresentsInt(difficulty_selection) == True:
+        difficulty_selection = int(difficulty_selection)
+    while (
+        doclear.RepresentsInt(difficulty_selection) == False
+        or difficulty_selection < 0
+        or difficulty_selection > 3
+    ):
+        print("Please enter value between 0-3")
+        difficulty_selection = input(
+            "Choose your dealer with their corresponding number:"
+        )
     return difficulty_selection

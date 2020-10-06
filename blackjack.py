@@ -5,7 +5,7 @@ import greeting
 import gameloop
 
 difficulty = 0
-#difficulty = greeting.hello_player()
+difficulty = greeting.hello_player()
 while True:
     status = gameloop.play_round(difficulty)
     if status == 0:
