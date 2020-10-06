@@ -8,11 +8,13 @@ def show_cards(d_hand: list, p_hand: list) -> None:
     """Simply prints out the player and dealer's hands"""
     card_split = [card.split("\n") for card in d_hand]
     zipped = zip(*card_split)
+    print("Dealer:")
     for elems in zipped:
         print("".join(elems))
     print()
     card_split = [card.split("\n") for card in p_hand]
     zipped = zip(*card_split)
+    print("Player:")
     for elems in zipped:
         print("".join(elems))
 
