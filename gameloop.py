@@ -47,6 +47,7 @@ def play_round():
             hand_value = cards.get_hand_value(hands)
         if player_choice == "stand":
             break
+    hand_value = cards.get_hand_value(hands)
     print(f"Hand's Value: {hand_value}")
 
 play_round()

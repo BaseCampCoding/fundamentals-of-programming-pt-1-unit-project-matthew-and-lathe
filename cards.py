@@ -57,16 +57,12 @@ def get_hand_value(cards: list) -> int:
     for c in cards:
         if c[1] == 'A':
             has_seen_ace += 1
-            print("ACE CARD")
         elif c[1] == 'K':
             value += 10
-            print("FACE CARD")
         elif c[1] == 'Q':
             value += 10
-            print("FACE CARD")
         elif c[1] == 'J':
             value += 10
-            print("FACE CARD")
         else:
             value += int(c[1])
     while has_seen_ace > 0:
