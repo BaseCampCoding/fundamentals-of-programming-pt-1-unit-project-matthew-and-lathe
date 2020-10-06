@@ -20,3 +20,11 @@ def hello_player():
     print(mission_statement)
     input("Press any key to play ")
     doclear.clear()
+
+    characters = """
+    Billy is the youngest dealer, far from the best at cards.
+    Karen is one of the better ones, moderately good.
+    Lathe is the most handsome of the group, but not quite the best.
+    Matt: The man, the myth, the legend himself. Need I say more?
+    """
+    difficulty_selection = input
