@@ -41,4 +41,4 @@ def play_round():
     if player_choice == "hit":
         print()  # here goes function
     if player_choice == "stand":
-        print()  # here goes function
+        hand_value = cards.get_hand_value(hands)
