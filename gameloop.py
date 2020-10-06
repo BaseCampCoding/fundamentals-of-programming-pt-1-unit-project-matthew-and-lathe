@@ -67,7 +67,7 @@ def play_round(difficulty: int) -> int:
         if player_choice == "hit":
             add_to_hand(new_deck, hands, display_hands, True)
             hand_value = cards.get_hand_value(hands)
-        if player_choice == "stand":
+        elif player_choice == "stand":
             doclear.clear()
             break
         doclear.clear()

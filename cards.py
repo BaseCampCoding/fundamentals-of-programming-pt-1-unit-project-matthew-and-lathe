@@ -29,9 +29,9 @@ def print_card(card: list) -> str:
     if not card:
         new_string = """
         #####
-        #♠+♥#
-        #+++#
-        #♦+♣#
+        #♠|♥#
+        #-+-#
+        #♦|♣#
         #####
         """
     elif card[1] != "10":
