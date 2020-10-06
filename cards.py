@@ -32,10 +32,18 @@ def print_card (card: list) -> str:
         #♦+♣#
         #####
         """
-    else:
+    elif card[1] != '10':
         new_string = f"""
         #####
         #{card[1]}  #
+        #   #
+        #  {card[0]}#
+        #####
+        """
+    else:
+        new_string = f"""
+        #####
+        #{card[1]} #
         #   #
         #  {card[0]}#
         #####
