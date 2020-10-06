@@ -90,6 +90,3 @@ def play_round():
     doclear.clear()
     show_cards(display_dealer_hands, display_hands)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
-
-
-play_round()
