@@ -1,10 +1,10 @@
 import cards
 
-
-def main_game(money, minumum_bet):
-    newdeck = cards.makeNewDeck()
-    current_card = newdeck.pop()
-    cards.printCard(current_card)
+def play_round():
+    new_deck = cards.make_new_deck()
     hands = []
-    hands.append(newdeck.pop())
-    hands.append(newdeck.pop())
+    dealer_hands = []
+    for i in range(2):
+        hands.append(new_deck.pop())
+        dealer_hands.append(new_deck.pop())
+    

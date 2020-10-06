@@ -27,9 +27,9 @@ def print_card (card: list) -> str:
     if not card:
         new_string = """
         #####
+        #♠+♥#
         #+++#
-        #+++#
-        #+++#
+        #♦+♣#
         #####
         """
     else:
