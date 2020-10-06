@@ -98,9 +98,9 @@ def play_round(difficulty: int) -> int:
     show_cards(display_dealer_hands, display_hands)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
     status = 0
-    if hand_value > dealer_hand_value and hand_value <= 21:
+    if hand_value > dealer_hand_value and hand_value <= 21 and dealer_hand_value <= 21:
         status = 0
-    elif hand_value < dealer_hand_value and dealer_hand_value <= 21:
+    elif hand_value < dealer_hand_value and dealer_hand_value <= 21 and hand_value <= 21:
         status = 1
     elif hand_value > 21:
         status = 1
