@@ -1,5 +1,7 @@
 import cards
 import doclear
+from random import randint
+from time import sleep
 
 def show_cards(d_hand: list, p_hand: list) -> None:
     """Simply prints out the player and dealer's hands"""
@@ -22,6 +24,16 @@ def add_to_hand(new_deck: list, hands: list, display_hands: list, is_player: boo
         hands.append(current_card)
         display_hands.append(cards.print_card([]))
 
+def dealer_ai(value: int) -> bool:
+    """This function will take in the current card value, and return on whether the dealer
+    should hit or stand depending on this value. False is for standing, True is for hitting."""
+    diff = 22 - value
+    random_value = randint(1, diff)
+    if random_value == diff:
+        return False
+    else:
+        return True
+
 def play_round():
     new_deck = cards.make_new_deck()
     hands = []
@@ -32,6 +44,7 @@ def play_round():
         add_to_hand(new_deck, hands, display_hands, True)
         add_to_hand(new_deck, dealer_hands, display_dealer_hands, False)
 
+    #this section is for the player's turn
     hand_value = 0
     while hand_value <= 21:
         show_cards(display_dealer_hands, display_hands)
@@ -46,9 +59,28 @@ def play_round():
             add_to_hand(new_deck, hands, display_hands, True)
             hand_value = cards.get_hand_value(hands)
         if player_choice == "stand":
+            doclear.clear()
             break
         doclear.clear()
     hand_value = cards.get_hand_value(hands)
-    print(f"Hand's Value: {hand_value}")
 
+    
+    #this section starts the dealer's turn
+    dealer_hand_value = 0
+    while dealer_hand_value <= 21:
+        show_cards(display_dealer_hands, display_hands)
+        print("Dealer is deciding...")
+        sleep(2)
+        dealer_hand_value =  cards.get_hand_value(dealer_hands)
+        choice = dealer_ai(dealer_hand_value)
+        if choice == False:
+            break
+        else:
+            add_to_hand(new_deck, dealer_hands, display_dealer_hands, False)
+            dealer_hand_value = cards.get_hand_value(dealer_hands)
+            doclear.clear()
+    dealer_hand_value = cards.get_hand_value(dealer_hands)
+    doclear.clear()
+    show_cards(display_dealer_hands, display_hands)
+    print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
 play_round()
