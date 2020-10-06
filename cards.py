@@ -49,3 +49,22 @@ def print_card (card: list) -> str:
         #####
         """
     return new_string
+
+def get_hand_value(cards: list) -> int:
+    """takes in a hand's cards and determines the value of the hand"""
+    has_seen_ace = 0
+    value = 0
+    for card in cards:
+        if card[1] == 'A':
+            has_seen_ace += 1
+        elif card[1] == 'K' or card[1] == 'Q' or card[1] == 'J':
+            value += 10
+        else:
+            value += int(card[1])
+    while has_seen_ace > 0:
+        if (value + 11) > 21:
+            value += 1
+        else:
+            value += 11
+        has_seen_ace -= 1
+    return value
