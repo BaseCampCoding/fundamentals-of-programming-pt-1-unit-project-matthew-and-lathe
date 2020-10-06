@@ -107,5 +107,5 @@ def play_round(difficulty: int) -> int:
     elif dealer_hand_value > 21:
         status = 0
     else:
-        status = 4
+        status = 2
     return status
