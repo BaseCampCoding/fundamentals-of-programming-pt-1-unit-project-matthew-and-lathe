@@ -27,4 +27,4 @@ def hello_player():
     Lathe is the most handsome of the group, but not quite the best.
     Matt: The man, the myth, the legend himself. Need I say more?
     """
-    difficulty_selection = input
+    difficulty_selection = input("Choose your dealer with their corresponding number:")
