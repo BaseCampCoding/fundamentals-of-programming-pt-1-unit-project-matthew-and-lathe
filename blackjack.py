@@ -20,4 +20,5 @@ while True:
     if choice == "0":
         break
     if choice == "p":
+        doclear.clear()
         continue
