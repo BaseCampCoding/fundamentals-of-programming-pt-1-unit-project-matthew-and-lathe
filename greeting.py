@@ -31,3 +31,4 @@ def hello_player():
     """
     print(characters)
     difficulty_selection = input("Choose your dealer with their corresponding number:")
+    return difficulty_selection
