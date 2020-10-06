@@ -38,7 +38,7 @@ def play_round():
     player_choice = player_choice.lower()
     while player_choice != "hit" and player_choice != "stand":
         print("Please enter hit or stand.")
-    if player_choice == 'hit':
-        #here goes function
-    if player_choice == 'stand':
-        #here goes function
+    if player_choice == "hit":
+        print()  # here goes function
+    if player_choice == "stand":
+        print()  # here goes function
