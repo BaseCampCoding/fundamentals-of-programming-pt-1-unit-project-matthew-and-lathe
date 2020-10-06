@@ -92,6 +92,10 @@ def play_round(difficulty: int) -> int:
     doclear.clear()
     if hand_value > 21:
         print("You have busted!")
+    if dealer_hand_value > 21:
+        print ("Dealer has busted!")
+    if dealer_hand_value = hand_value:
+        print ('Tie!')
     show_cards(display_dealer_hands, display_hands)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
     status = 0
