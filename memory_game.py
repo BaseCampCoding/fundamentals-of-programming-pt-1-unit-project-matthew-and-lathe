@@ -62,10 +62,22 @@ memory_cards = [cardset_1, cardset_2, cardset_3, cardset_4]
 shuffle_cards1 = random.choice(memory_cards)
 shuffle_cards2 = random.choice(memory_cards)
 print("Here we go...")
-sleep(3)
+sleep(2)
 print(shuffle_cards1[0], shuffle_cards2[0])
-sleep(0.3)
+sleep(0.5)
 doclear.clear()
-question = input("What two cards did you see?")
+question1 = input("What was the first card you saw?")
 print("[Example: ace of spades, queen of hearts]")
-question = question.lower
+question1 = question1.lower
+if question1 == shuffle_cards1[1]:
+    print("You got it!")
+else:
+    print("Nope!")
+
+question2 = input("What was the second card you saw?")
+print("[Example: ace of spades, queen of hearts]")
+question2 = question2.lower
+if question2 == shuffle_cards2[1]:
+    print("You got it!")
+else:
+    print("Nope!")
