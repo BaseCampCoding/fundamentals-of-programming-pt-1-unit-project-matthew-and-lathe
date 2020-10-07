@@ -169,7 +169,7 @@ def play_round(difficulty: int) -> int:
         show_cards(display_dealer_hands, display_hands)
         char_dialogue(difficulty)
         print("Dealer is deciding...")
-        sleep(2)
+        sleep(4)
         dealer_hand_value = cards.get_hand_value(dealer_hands)
         choice = dealer_ai(dealer_hand_value, difficulty)
         if choice == False:
