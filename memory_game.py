@@ -1,6 +1,6 @@
-import cards
-
+import random
 # ♣, ♦, ♥, ♠
+
 print(
     """
     Welcome to Memory!
@@ -8,40 +8,41 @@ print(
     See if you can remember them all.
     """
 )
-cardset_1_art = """
-    #####  #####
-    #A  #  #3  #
-    #   #  #   #
-    #  ♠#  #  ♦#
-    #####  #####
-    """
-cardset_1_values = ["ace of spades", "3 of diamonds", "three of diamonds"]
+cardset_1= ["""
+    ##### 
+    #A  # 
+    #   # 
+    #  ♠# 
+    #####  
+    """,
+    "ace of spades"]
 
-cardset_2_art = """
-    #####  #####
-    #K  #  #K  #
-    #   #  #   #
-    #  ♥#  #  ♥#
-    #####  #####
+cardset_2 = ["""
+    #####
+    #K  #
+    #   #
+    #  ♥#
+    #####
     """
-cardset_2_values = ["king of hearts", "king of hearts"]
+    , "king of hearts"]
 
-cardset_3_art = """
-    #####  #####
-    #Q  #  #4  #
-    #   #  #   #
-    #  ♣#  #  ♥#
-    #####  #####
+cardset_3 = ["""
+    #####
+    #Q  #
+    #   #
+    #  ♣#
+    #####
     """
-cardset_3_values = ["queen of clubs", "4 of hearts", "four of hearts"]
+    , "queen of clubs"]
 
 cardset_4_art = """
-    #####  #####
-    #3  #  #10 #
-    #   #  #   #
-    #  ♦#  #  ♠#
-    #####  #####
-    """
-cardset_4_values = ["3 of diamonds", "10 of spades", "ten of spades"]
+    #####
+    #J  #
+    #   #
+    #  ♦#
+    #####
+    """,
+"jack of diamonds"]
+
 
 question = input("What two cards did you see?")
