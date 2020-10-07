@@ -98,6 +98,23 @@ def evalutate_hand (hands: list) -> int:
             value += temp_value * 4
         return value
 
+def dealer_choices (value: int, hands: list, difficulty: int) -> list:
+    """This function will determine the overall worth of the hand, and then
+    send out the 'marks' of what cards they wish to replace (this is represented
+    through a list)"""
+    templet_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    if value <= 12:
+        if difficulty == 0:
+            return [1, 2, 3]
+        else:
+            if randint(1, 4) == 1:
+                return [1, 2, 3]
+            else:
+                return [randint(1, 3)]
+    else:
+        return []
+
+
 def three_card_poker (difficulty: int) -> int:
     """This will be our new addition to the casino, with a simplified version of poker.
     First, the player and dealer are dealt 3 cards. Next, both are given the chance to 
@@ -163,7 +180,17 @@ def three_card_poker (difficulty: int) -> int:
         sleep(1)
         clear()
     replace_cards(new_deck, hands, display_hands, marks)
+    dealer_choices = (evalutate_hand(dealer_hands), dealer_hands, difficulty)
+    replace_cards(new_deck, dealer_hands, real_dealer_hands, dealer_choices)
+    hand_value = evalutate_hand(hands)
+    dealer_hand_value = evalutate_hand(dealer_hands)
     show_cards(real_dealer_hands, display_hands)
+    if hand_value > dealer_hand_value:
+        return 0
+    elif hand_value < dealer_hand_value:
+        return 1
+    else:
+        return 2
 
 three_card_poker(0)
         

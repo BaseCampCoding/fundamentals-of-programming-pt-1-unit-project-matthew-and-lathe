@@ -3,6 +3,7 @@ import doclear
 import cards
 import greeting
 import gameloop
+from time import sleep
 
 difficulty = 0
 money = 100
@@ -10,6 +11,7 @@ greeting.hello_player()
 choice = ''
 while money >= 10:
     difficulty = greeting.choose_dealer(money)
+    sleep(1.5)
     if difficulty == 4:
         break
     doclear.clear()
