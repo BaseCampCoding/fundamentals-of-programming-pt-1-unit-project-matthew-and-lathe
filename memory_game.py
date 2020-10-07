@@ -3,7 +3,7 @@ import doclear
 from time import sleep
 
 # ♣, ♦, ♥, ♠
-def main_memory_game():
+def main_memory_game(difficulty: int):
     print(
         """
         Welcome to Memory!
