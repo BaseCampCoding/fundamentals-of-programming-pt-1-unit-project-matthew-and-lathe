@@ -32,31 +32,71 @@ def replace_cards (new_deck: list, hands: list, display_hands: list, marks: list
             marks.remove(3)
 
 def evalutate_hand (hands: list) -> int:
-    """This function will determine how valuable a hand it, and return that integer"""
+    """This function will determine how valuable a hand it, and return that integer
+    pairs are worth 2 times their card's value, triples are worth 3 times their card's
+    value, flushes are worth their highest card value times 4, and royal flushes are worth
+    more than anything else possible"""
     #list for keeping track of how many of each card a player has (for pairs and triples)
-    #["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+    #templet_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     has_pair = False
     has_triple = False
-    flush = False
-    royal_flush = False
+    has_flush = False
     #bools for seeing the 3 royal cards
     jack = False
     queen = False
     king = False
+    value = 0
     for i in hands:
         if i[1] == 'J':
             jack = True
-            counts[10] += 1
+            counts[9] += 1
+            value += 10
         elif i[1] == 'Q':
             queen = True
-            counts[11] += 1
+            counts[10] += 1
+            value += 11
         elif i[1] == 'K':
             king = True
-            counts[12] += 1
-    
+            counts[11] += 1
+            value += 12
+        else:
+            temp = hands.index(i)
+            counts[temp]
+            value += temp + 1
+
+    has_seen = 0
+    #stores what value the pair, triple, or what items are in a flush
+    temp_value = 0
     if jack == True and queen == True and king == True:
-        royal_flush = True
+        return 1000
+    else:
+        for i in counts:
+            if i == 1 and has_seen == 0:
+                has_seen = 1
+            elif i == 1 and has_seen == 1:
+                has_seen = 2
+            elif i == 0 and has_seen == 1:
+                has_seen = 0
+            elif i == 1 and has_seen == 2:
+                has_flush = True
+                temp_value = counts.index(i) + 1
+                break
+            elif i == 2:
+                has_pair = True
+                temp_value = counts.index(i) + 1
+                break
+            elif i == 3:
+                has_triple = True
+                temp_value = counts.index(i) + 1
+                break
+        if has_pair == True:
+            value += temp_value * 2
+        elif has_triple == True:
+            value += temp_value * 3
+        elif has_flush == True:
+            value += temp_value * 4
+        return value
 
 def three_card_poker (difficulty: int) -> int:
     """This will be our new addition to the casino, with a simplified version of poker.
