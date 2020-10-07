@@ -4,7 +4,7 @@ import cards
 import greeting
 import gameloop
 import threecard
-#import memory_game
+from memory_game import main_memory_game
 from time import sleep
 
 difficulty = 0
@@ -34,8 +34,7 @@ while money >= 10:
         elif game_mode == "minipoker":
             status = threecard.three_card_poker(difficulty)
         else:
-            #status = memory_game.memory_game(difficulty)
-            print()
+            status = main_memory_game(difficulty)
         if status == 0:
             print("You won!")
             money += bet * 2
