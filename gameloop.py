@@ -64,8 +64,14 @@ def dealer_ai(value: int, difficulty: int) -> bool:
                 return True
             else:
                 return False
-        else:
+        elif difficulty == 2:
             random_value = randint(1, 15)
+            if random_value == 10:
+                return True
+            else:
+                return False
+        elif difficulty == 3:
+            random_value = randint(1, 18)
             if random_value == 10:
                 return True
             else:
@@ -77,8 +83,14 @@ def dealer_ai(value: int, difficulty: int) -> bool:
                 return True
             else:
                 return False
-        else:
+        elif difficulty == 1 or difficulty == 2:
             random_value = randint(1, 100)
+            if random_value == 10:
+                return True
+            else:
+                return False
+        else:
+            random_value = randint(1, 200)
             if random_value == 10:
                 return True
             else:
