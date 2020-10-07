@@ -19,6 +19,9 @@ while True:
     choice = choice.lower()
     if choice == "0":
         break
-    if choice == "p":
+    elif choice.lower() == "p":
+        doclear.clear()
+        continue
+    else:
         doclear.clear()
         continue
