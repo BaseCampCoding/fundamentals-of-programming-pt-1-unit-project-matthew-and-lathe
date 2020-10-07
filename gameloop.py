@@ -106,7 +106,7 @@ def dealer_ai(value: int, difficulty: int) -> bool:
             return False
 
 
-def char_dialogue(diff_level: int) -> str:
+def char_dialogue(diff_level: int):
     """Determines chances of certain dialogue being said by each character/difficulty chosen"""
     num1 = randint(0, 10)
     if diff_level == 0:
@@ -168,9 +168,8 @@ def play_round(difficulty: int) -> int:
     while dealer_hand_value <= 21 and hand_value <= 21:
         show_cards(display_dealer_hands, display_hands)
         print("Dealer is deciding...")
-        char_dialogue(play_round)
+        char_dialogue(difficulty)
         sleep(2)
-        char_dialogue(play_round)
         dealer_hand_value = cards.get_hand_value(dealer_hands)
         choice = dealer_ai(dealer_hand_value, difficulty)
         if choice == False:
