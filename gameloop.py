@@ -145,8 +145,8 @@ def play_round(difficulty: int) -> int:
     dealer_hand_value = 0
     while dealer_hand_value <= 21 and hand_value <= 21:
         show_cards(display_dealer_hands, display_hands)
-        char_dialogue(play_round)
         print("Dealer is deciding...")
+        char_dialogue(play_round)
         sleep(2)
         dealer_hand_value = cards.get_hand_value(dealer_hands)
         choice = dealer_ai(dealer_hand_value, difficulty)
@@ -186,20 +186,20 @@ def char_dialogue(diff_level: int) -> str:
     """Determines chances of certain dialogue being said by each character/difficulty chosen"""
     num1 = randint(0, 10)
     if diff_level == 0:
-        if num1 > 0 and num1 < 3:
+        if num1 > 0 and num1 <= 3:
             print("[Billy: Get ready to go down!]")
-        if num1 > 3 and num1 < 5:
+        if num1 > 3 and num1 <= 5:
             print("[Billy: Believe it!]")
-        if num1 > 5 and num1 < 10:
+        if num1 > 5 and num1 <= 10:
             print("[Billy: I'm the best!] ")
     if diff_level == 1:
-        if num1 > 0 and num1 < 5:
+        if num1 > 0 and num1 <= 5:
             print("[Karen: Is butter a carb?]")
     if diff_level == 2:
-        if num1 > 0 and num1 < 6:
+        if num1 > 0 and num1 <= 6:
             print("[Lathe: The only thing I'm allergic to is criticism.]")
     if diff_level == 3:
-        if num1 > 0 and num1 < 2:
+        if num1 > 0 and num1 <= 2:
             print(
                 "[Matt: I gave you the chance of aiding me willingly, but you have elected the way of pain.]"
             )
