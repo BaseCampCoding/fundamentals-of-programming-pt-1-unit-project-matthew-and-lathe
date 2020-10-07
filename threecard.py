@@ -31,6 +31,33 @@ def replace_cards (new_deck: list, hands: list, display_hands: list, marks: list
             add_to_hand(new_deck, hands, display_hands, True)
             marks.remove(3)
 
+def evalutate_hand (hands: list) -> int:
+    """This function will determine how valuable a hand it, and return that integer"""
+    #list for keeping track of how many of each card a player has (for pairs and triples)
+    #["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+    counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    has_pair = False
+    has_triple = False
+    flush = False
+    royal_flush = False
+    #bools for seeing the 3 royal cards
+    jack = False
+    queen = False
+    king = False
+    for i in hands:
+        if i[1] == 'J':
+            jack = True
+            counts[10] += 1
+        elif i[1] == 'Q':
+            queen = True
+            counts[11] += 1
+        elif i[1] == 'K':
+            king = True
+            counts[12] += 1
+    
+    if jack == True and queen == True and king == True:
+        royal_flush = True
+
 def three_card_poker (difficulty: int) -> int:
     """This will be our new addition to the casino, with a simplified version of poker.
     First, the player and dealer are dealt 3 cards. Next, both are given the chance to 
