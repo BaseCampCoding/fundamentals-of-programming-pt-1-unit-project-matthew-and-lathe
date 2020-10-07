@@ -190,7 +190,4 @@ def three_card_poker (difficulty: int) -> int:
     elif hand_value < dealer_hand_value:
         return 1
     else:
-        return 2
-
-three_card_poker(0)
-        
+        return 2        

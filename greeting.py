@@ -76,8 +76,16 @@ def get_bet (money: int, min_bet: int) -> int:
     print(f"You have ${money}")
     bet = input(f"Please enter a bet of atleast ${min_bet}")
     is_int = doclear.RepresentsInt(bet)
-    while is_int == False or int(bet) > min_bet:
+    while is_int == False or int(bet) < min_bet:
         print("Invalid input.")
         bet = input(f"Please enter a bet of atleast ${min_bet}")
         is_int = doclear.RepresentsInt(bet)
     return bet
+
+def choose_game () -> str:
+    print("What game do you want to play? Enter the name of the game.")
+    choice = input("blackjack, minipoker, or memory? ")
+    while choice != "blackjack" and choice != "minipoker" and choice != "memory":
+        print("Invalid input.")
+        choice = input("blackjack, minipoker, or memory? ")
+    return choice
