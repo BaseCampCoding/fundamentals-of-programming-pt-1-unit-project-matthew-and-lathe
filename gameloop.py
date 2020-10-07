@@ -123,6 +123,7 @@ def play_round(difficulty: int) -> int:
     hand_value = 0
     while hand_value <= 21:
         show_cards(display_dealer_hands, display_hands)
+        char_dialogue(play_round)
         print("-------------")
         print("Hit or Stand?")
         print("-------------")
@@ -181,7 +182,7 @@ def play_round(difficulty: int) -> int:
 
 def char_dialogue(diff_level: int) -> str:
     """Determines chances of certain dialogue being said by each character/difficulty chosen"""
-    num1 = random.randint(0, 10)
+    num1 = randint(0, 10)
     if diff_level == 0:
         if num1 < 0 and num1 > 3:
             print("[Billy: Get ready to go down!]")
