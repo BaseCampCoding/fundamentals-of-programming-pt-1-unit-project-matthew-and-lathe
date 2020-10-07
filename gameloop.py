@@ -105,6 +105,7 @@ def dealer_ai(value: int, difficulty: int) -> bool:
         else:
             return False
 
+
 def play_round(difficulty: int) -> int:
     """This function is the main game loop itself: it is responsible for I/O, and also
     calling in helper functions. Intakes dealer difficulty and returns who won (or if
@@ -165,7 +166,9 @@ def play_round(difficulty: int) -> int:
     status = 0
     if hand_value > dealer_hand_value and hand_value <= 21 and dealer_hand_value <= 21:
         status = 0
-    elif hand_value < dealer_hand_value and dealer_hand_value <= 21 and hand_value <= 21:
+    elif (
+        hand_value < dealer_hand_value and dealer_hand_value <= 21 and hand_value <= 21
+    ):
         status = 1
     elif hand_value > 21:
         status = 1
@@ -174,3 +177,26 @@ def play_round(difficulty: int) -> int:
     else:
         status = 2
     return status
+
+
+def char_dialogue(diff_level: int) -> str:
+    """Determines chances of certain dialogue being said by each character/difficulty chosen"""
+    num1 = random.randint(0, 10)
+    if diff_level == 0:
+        if num1 < 0 and num1 > 3:
+            print("[Billy: Get ready to go down!]")
+        if num1 < 3 and num1 > 5:
+            print("[Billy: Believe it!]")
+        if num1 < 5 and num1 > 10:
+            print("[Billy: I'm the best!] ")
+    if diff_level == 1:
+        if num1 < 0 and num1 > 5:
+            print("[Karen: Is butter a carb?]")
+    if diff_level == 2:
+        if num1 < 0 and num1 > 6:
+            print("[Lathe: The only thing I'm allergic to is criticism.]")
+    if diff_level == 3:
+        if num1 < 0 and num1 > 2:
+            print(
+                "[Matt: I gave you the chance of aiding me willingly, but you have elected the way of pain.]"
+            )
