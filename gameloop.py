@@ -123,7 +123,6 @@ def play_round(difficulty: int) -> int:
     hand_value = 0
     while hand_value <= 21:
         show_cards(display_dealer_hands, display_hands)
-        char_dialogue(play_round)
         print("-------------")
         print("Hit or Stand?")
         print("-------------")
@@ -145,6 +144,7 @@ def play_round(difficulty: int) -> int:
     while dealer_hand_value <= 21 and hand_value <= 21:
         show_cards(display_dealer_hands, display_hands)
         print("Dealer is deciding...")
+        char_dialogue(play_round)
         sleep(2)
         dealer_hand_value = cards.get_hand_value(dealer_hands)
         choice = dealer_ai(dealer_hand_value, difficulty)
