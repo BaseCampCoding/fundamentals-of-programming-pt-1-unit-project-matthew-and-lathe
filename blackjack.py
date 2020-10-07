@@ -18,6 +18,7 @@ while money >= 10:
     if difficulty == 4:
         break
     doclear.clear()
+    choice = ''
     while choice != 'leave' and money >= 10:
         min_bet = 0
         if difficulty == 0:
