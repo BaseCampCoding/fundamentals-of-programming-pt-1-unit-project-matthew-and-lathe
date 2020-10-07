@@ -163,7 +163,6 @@ def play_round(difficulty: int) -> int:
             break
         doclear.clear()
     hand_value = cards.get_hand_value(hands)
-
     # this section starts the dealer's turn
     dealer_hand_value = 0
     while dealer_hand_value <= 21 and hand_value <= 21:
@@ -171,6 +170,7 @@ def play_round(difficulty: int) -> int:
         print("Dealer is deciding...")
         char_dialogue(play_round)
         sleep(2)
+        char_dialogue(play_round)
         dealer_hand_value = cards.get_hand_value(dealer_hands)
         choice = dealer_ai(dealer_hand_value, difficulty)
         if choice == False:
