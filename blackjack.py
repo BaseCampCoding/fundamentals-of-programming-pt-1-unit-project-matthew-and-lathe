@@ -3,6 +3,8 @@ import doclear
 import cards
 import greeting
 import gameloop
+import threecard
+#import memory_game
 from time import sleep
 
 difficulty = 0
@@ -11,6 +13,7 @@ greeting.hello_player()
 choice = ''
 while money >= 10:
     difficulty = greeting.choose_dealer(money)
+    game_mode = greeting.choose_game()
     sleep(1.5)
     if difficulty == 4:
         break
@@ -26,7 +29,13 @@ while money >= 10:
         else:
             min_bet = 100
         bet = greeting.get_bet(money, min_bet)
-        status = gameloop.play_round(difficulty)
+        if game_mode == "blackjack":
+            status = gameloop.play_round(difficulty)
+        elif game_mode == "minipoker":
+            status = threecard.three_card_poker(difficulty)
+        else:
+            #status = memory_game.memory_game(difficulty)
+            print()
         if status == 0:
             print("You won!")
             money += bet * 2
