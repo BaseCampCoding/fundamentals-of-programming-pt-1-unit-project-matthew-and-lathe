@@ -5,7 +5,8 @@ import greeting
 import gameloop
 
 difficulty = 0
-difficulty = greeting.hello_player()
+greeting.hello_player()
+difficulty = greeting.choose_dealer()
 doclear.clear()
 while True:
     status = gameloop.play_round(difficulty)

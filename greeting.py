@@ -22,12 +22,13 @@ def hello_player():
     input("Press any key to play ")
     doclear.clear()
 
+def choose_dealer():
     print(table_string)
     characters = """
-    Billy is the youngest dealer, far from the best at cards.
-    Karen is one of the better ones, moderately good.
-    Lathe is the most handsome of the group, but not quite the best.
-    Matt: The man, the myth, the legend himself. Need I say more?
+    Billy is the youngest dealer, far from the best at cards. He is also a loud mouth. (Min Bet: 10)
+    Karen is one of the better ones, moderately good. Not as talkative as Billy, but not scared to chit-chat. (Min Bet: 25)
+    Lathe is the most handsome of the group, but not quite the best. He is usually pretty quiet. (Min Bet: 50)
+    Matt: The man, the myth, the legend himself. Need I say more? (Min Bet: 100)
     """
     print(characters)
     difficulty_selection = input("Choose your dealer with their corresponding number:")
