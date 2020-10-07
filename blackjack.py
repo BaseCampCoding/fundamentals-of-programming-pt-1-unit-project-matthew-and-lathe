@@ -49,6 +49,8 @@ while money >= 10:
             print("Invalid input.")
             choice = input("Enter 'leave' to pick another table or 'again' to play again: ")
             choice = choice.lower()
+    if money < 10:
+        break
 if money < 10:
     print("Get outta here!")
 else:

@@ -74,7 +74,7 @@ def choose_dealer(money: int):
 
 def get_bet (money: int, min_bet: int) -> int:
     print(f"You have ${money}")
-    bet = input(f"Please enter a bet of atleast ${min_bet}")
+    bet = input(f"Please enter a bet of atleast ${min_bet}: ")
     is_int = doclear.RepresentsInt(bet)
     while is_int == False or int(bet) < min_bet:
         print("Invalid input.")
