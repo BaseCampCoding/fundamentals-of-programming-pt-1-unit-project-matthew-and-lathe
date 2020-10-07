@@ -67,3 +67,5 @@ print(shuffle_cards1[0], shuffle_cards2[0])
 sleep(0.3)
 doclear.clear()
 question = input("What two cards did you see?")
+print("[Example: ace of spades, queen of hearts]")
+question = question.lower
