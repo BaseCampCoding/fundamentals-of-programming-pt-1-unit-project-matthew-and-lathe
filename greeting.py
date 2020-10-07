@@ -22,6 +22,7 @@ def hello_player():
     input("Press any key to play ")
     doclear.clear()
 
+
 def choose_dealer():
     print(table_string)
     characters = """
@@ -34,9 +35,22 @@ def choose_dealer():
     difficulty_selection = input("Choose your dealer with their corresponding number:")
     if doclear.RepresentsInt(difficulty_selection) == True:
         difficulty_selection = int(difficulty_selection)
-    while (doclear.RepresentsInt(difficulty_selection) == False or (difficulty_selection < 0 or difficulty_selection > 3)):
+    while doclear.RepresentsInt(difficulty_selection) == False or (
+        difficulty_selection < 0 or difficulty_selection > 3
+    ):
         print("Please enter value between 0-3")
         difficulty_selection = input(
             "Choose your dealer with their corresponding number:"
         )
+    if difficulty_selection == (0):
+        print("[Billy: Get ready to eat it!]")
+    if difficulty_selection == (1):
+        print(
+            "[Karen: I’m sorry that people are so jealous of me but I can’t help it that I’m popular.]"
+        )
+    if difficulty_selection == (2):
+        print("[Lathe: I'm not conceited. Conceit is a fault and I have no faults.]")
+    if difficulty_selection == (3):
+        print("[Matt: So you have chosen death.]")
+
     return difficulty_selection
