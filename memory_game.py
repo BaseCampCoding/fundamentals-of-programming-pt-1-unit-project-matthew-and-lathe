@@ -68,7 +68,7 @@ sleep(2)
 doclear.clear()
 print("[Example: ace of spades, queen of hearts]")
 question1 = input("What was the first card you saw? ")
-question1 = question1.lower
+question1 = question1.lower()
 if question1 == shuffle_cards1[1]:
     print("You got it!")
 if question1 != shuffle_cards1[1]:
@@ -76,7 +76,7 @@ if question1 != shuffle_cards1[1]:
 
 question2 = input("What was the second card you saw? ")
 print("[Example: ace of spades, queen of hearts]")
-question2 = question2.lower
+question2 = question2.lower()
 if question2 == shuffle_cards2[1]:
     print("You got it!")
 if question2 != shuffle_cards2[1]:
