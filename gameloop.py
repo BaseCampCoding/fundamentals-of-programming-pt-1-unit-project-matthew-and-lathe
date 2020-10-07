@@ -130,6 +130,8 @@ def play_round(difficulty: int) -> int:
         player_choice = player_choice.lower()
         while player_choice != "hit" and player_choice != "stand":
             print("Please enter hit or stand.")
+            player_choice = input()
+            player_choice = player_choice.lower()
         if player_choice == "hit":
             add_to_hand(new_deck, hands, display_hands, True)
             hand_value = cards.get_hand_value(hands)
