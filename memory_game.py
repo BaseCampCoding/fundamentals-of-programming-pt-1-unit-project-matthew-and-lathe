@@ -64,20 +64,20 @@ shuffle_cards2 = random.choice(memory_cards)
 print("Here we go...")
 sleep(2)
 print(shuffle_cards1[0], shuffle_cards2[0])
-sleep(0.5)
+sleep(2)
 doclear.clear()
-question1 = input("What was the first card you saw?")
 print("[Example: ace of spades, queen of hearts]")
-question1 = question1.lower
+question1 = input("What was the first card you saw? ")
+question1 = question1.lower()
 if question1 == shuffle_cards1[1]:
     print("You got it!")
-else:
+if question1 != shuffle_cards1[1]:
     print("Nope!")
 
-question2 = input("What was the second card you saw?")
+question2 = input("What was the second card you saw? ")
 print("[Example: ace of spades, queen of hearts]")
-question2 = question2.lower
+question2 = question2.lower()
 if question2 == shuffle_cards2[1]:
     print("You got it!")
-else:
+if question2 != shuffle_cards2[1]:
     print("Nope!")
