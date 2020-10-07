@@ -1,6 +1,7 @@
-import cards
+import random
 
 # ♣, ♦, ♥, ♠
+
 print(
     """
     Welcome to Memory!
@@ -8,40 +9,54 @@ print(
     See if you can remember them all.
     """
 )
-cardset_1_art = """
-    #####  #####
-    #A  #  #3  #
-    #   #  #   #
-    #  ♠#  #  ♦#
-    #####  #####
-    """
-cardset_1_values = ["ace of spades", "3 of diamonds", "three of diamonds"]
 
-cardset_2_art = """
-    #####  #####
-    #K  #  #K  #
-    #   #  #   #
-    #  ♥#  #  ♥#
-    #####  #####
-    """
-cardset_2_values = ["king of hearts", "king of hearts"]
 
-cardset_3_art = """
-    #####  #####
-    #Q  #  #4  #
-    #   #  #   #
-    #  ♣#  #  ♥#
-    #####  #####
+cardset_1 = [
     """
-cardset_3_values = ["queen of clubs", "4 of hearts", "four of hearts"]
+    ##### 
+    #A  # 
+    #   # 
+    #  ♠# 
+    #####  
+    """,
+    "ace of spades",
+]
 
-cardset_4_art = """
-    #####  #####
-    #3  #  #10 #
-    #   #  #   #
-    #  ♦#  #  ♠#
-    #####  #####
+cardset_2 = [
     """
-cardset_4_values = ["3 of diamonds", "10 of spades", "ten of spades"]
+    #####
+    #K  #
+    #   #
+    #  ♥#
+    #####
+    """,
+    "king of hearts",
+]
 
+cardset_3 = [
+    """
+    #####
+    #Q  #
+    #   #
+    #  ♣#
+    #####
+    """,
+    "queen of clubs",
+]
+
+cardset_4 = [
+    """
+    #####
+    #J  #
+    #   #
+    #  ♦#
+    #####
+    """,
+    "jack of diamonds",
+]
+
+memory_cards = [cardset_1, cardset_2, cardset_3, cardset_4]
+shuffle_cards1 = random.choice(memory_cards)
+shuffle_cards2 = random.choice(memory_cards)
+print(shuffle_cards1[0], shuffle_cards2[0])
 question = input("What two cards did you see?")
