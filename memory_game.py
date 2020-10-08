@@ -61,27 +61,30 @@ def main_memory_game(difficulty: int):
     memory_cards = [cardset_1, cardset_2, cardset_3, cardset_4]
     shuffle_cards1 = random.choice(memory_cards)
     shuffle_cards2 = random.choice(memory_cards)
-    print("Here we go...")
-    sleep(2)
-    print(shuffle_cards1[0], shuffle_cards2[0])
-    sleep(2)
-    doclear.clear()
-    print("[Example: ace of spades, queen of hearts]")
-    question1 = input("What was the first card you saw? ")
-    question1 = question1.lower()
-    if question1 == shuffle_cards1[1]:
-        print("You got it!")
-    if question1 != shuffle_cards1[1]:
-        print("Nope!")
+    shuffle_cards3 = random.choice(memory_cards)
+    shuffle_cards4 = random.choice(memory_cards)
+    if difficulty == 0 or difficulty == 1:
+        print("Here we go...")
+        sleep(2)
+        print(shuffle_cards1[0], shuffle_cards2[0])
+        sleep(2)
+        doclear.clear()
+        print("[Example: ace of spades, queen of hearts]")
+        question1 = input("What was the first card you saw? ")
+        question1 = question1.lower()
+        if question1 == shuffle_cards1[1]:
+            print("You got it!")
+        if question1 != shuffle_cards1[1]:
+            print("Nope!")
 
-    question2 = input("What was the second card you saw? ")
-    print("[Example: ace of spades, queen of hearts]")
-    question2 = question2.lower()
-    if question2 == shuffle_cards2[1]:
-        print("You got it!")
-    if question2 != shuffle_cards2[1]:
-        print("Nope!")
-    if question1 == shuffle_cards1[1] and question2 == shuffle_cards2[1]:
-        return 0
-    else:
-        return 1
+        question2 = input("What was the second card you saw? ")
+        print("[Example: ace of spades, queen of hearts]")
+        question2 = question2.lower()
+        if question2 == shuffle_cards2[1]:
+            print("You got it!")
+        if question2 != shuffle_cards2[1]:
+            print("Nope!")
+        if question1 == shuffle_cards1[1] and question2 == shuffle_cards2[1]:
+            return 0
+        else:
+            return 1
