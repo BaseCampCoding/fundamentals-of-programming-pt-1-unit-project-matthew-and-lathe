@@ -95,10 +95,10 @@ def main_memory_game(difficulty: int):
     if difficulty == 2 or difficulty == 3:
         print("Here we go...")
         sleep(2)
-        colored_text(shuffle_cards1, 4)
-        colored_text(shuffle_cards2, 4)
-        colored_text(shuffle_cards3, 4)
-        colored_text(shuffle_cards4, 4)
+        colored_text(shuffle_cards1[0], 4)
+        colored_text(shuffle_cards2[0], 4)
+        colored_text(shuffle_cards3[0], 4)
+        colored_text(shuffle_cards4[0], 4)
 
         sleep(2)
         doclear.clear()
