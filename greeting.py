@@ -57,7 +57,7 @@ def choose_dealer(money: int):
     colored_text(characters[3][0], 1)
     print(characters[3][1])
     print(" ")
-    print("Press 4 to exit the casino.")
+    print("Press 4 to try and exit the casino.")
     print(" ")
     print(f"Budget: ${money}")
     print(" ")
@@ -78,9 +78,11 @@ def choose_dealer(money: int):
         difficulty_selection = -1
     elif difficulty_selection == 4 and money >= 1000:
         can_skip = True
-    while doclear.RepresentsInt(difficulty_selection) == False or (
-        difficulty_selection < 0 or difficulty_selection > 3
-    ) or can_skip == False:
+    while (
+        doclear.RepresentsInt(difficulty_selection) == False
+        or (difficulty_selection < 0 or difficulty_selection > 3)
+        or can_skip == False
+    ):
         if can_skip == True:
             break
         print(
@@ -107,7 +109,12 @@ def choose_dealer(money: int):
             break
         elif difficulty_selection == 4 and money < 1000:
             print("Not yet, you have got to get to $1000 first!")
-        elif difficulty_selection == 0 or difficulty_selection == 1 or difficulty_selection == 2 or difficulty_selection == 3:
+        elif (
+            difficulty_selection == 0
+            or difficulty_selection == 1
+            or difficulty_selection == 2
+            or difficulty_selection == 3
+        ):
             break
     if difficulty_selection == (0):
         colored_text("[Billy: Get ready to eat it!]", 2)
