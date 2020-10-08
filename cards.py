@@ -18,7 +18,7 @@ def colored_text(line: str, color: int, background: int):
         elif color == 4:
             print("\033[95m {}\033[00m" .format(line))
         elif color == 5:
-            print("\033[91m {}\033[00m" .format(line))
+            print("\033[31m {}\033[00m" .format(line))
     else:
         if color == 0:
             print("\033[91;40m {}\033[00m" .format(line))
@@ -31,7 +31,7 @@ def colored_text(line: str, color: int, background: int):
         elif color == 4:
             print("\033[95;40m {}\033[00m" .format(line))
         elif color == 5:
-            print("\033[91;40m {}\033[00m" .format(line))
+            print("\033[31;40m {}\033[00m" .format(line))
     
 def show_cards(d_hand: list, p_hand: list, color_one: int, color_two: int) -> None:
     """Simply prints out the player and dealer's hands"""
