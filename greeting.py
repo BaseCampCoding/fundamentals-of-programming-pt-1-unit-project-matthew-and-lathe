@@ -107,6 +107,8 @@ def choose_dealer(money: int):
             break
         elif difficulty_selection == 4 and money < 1000:
             print("Not yet, you have got to get to $1000 first!")
+        elif difficulty_selection == 0 or difficulty_selection == 1 or difficulty_selection == 2 or difficulty_selection == 3:
+            break
     if difficulty_selection == (0):
         colored_text("[Billy: Get ready to eat it!]", 2)
     if difficulty_selection == (1):
