@@ -1,6 +1,29 @@
 from random import shuffle
 
 # ♣, ♦, ♥, ♠
+
+def pr_red(skk): print("\033[91m {}\033[00m" .format(skk))
+def pr_cyan(skk): print("\033[96m {}\033[00m" .format(skk))
+
+def show_cards(d_hand: list, p_hand: list, color_one: int, color_two: int) -> None:
+    """Simply prints out the player and dealer's hands"""
+    card_split = [card.split("\n") for card in d_hand]
+    zipped = zip(*card_split)
+    print("Dealer:")
+    for elems in zipped:
+        if color_one == 0:
+            pr_red("".join(elems))
+    print()
+    card_split = [card.split("\n") for card in p_hand]
+    zipped = zip(*card_split)
+    print("Player:")
+    for elems in zipped:
+        if color_two == 0:
+            pr_red("".join(elems))
+        elif color_two == 1:
+            pr_cyan("".join(elems))
+       
+
 def make_new_deck() -> list:
     """This function takes in no data, but returns a shuffled deck, in which is stored
     as a 2D List, with the first element of every sublist being the suit, and the second
