@@ -38,7 +38,7 @@ while money >= 10:
             status = main_memory_game(difficulty)
         if status == 0:
             print("You won!")
-            money += bet * 2
+            money += bet
         elif status == 1:
             print("You lost!")
             money -= bet
