@@ -100,7 +100,7 @@ def main_memory_game(difficulty: int):
         colored_text(shuffle_cards3[0], 4, 0)
         colored_text(shuffle_cards4[0], 4, 0)
 
-        sleep(2)
+        sleep(3)
         doclear.clear()
         print("[Example: ace of spades, queen of hearts]")
         question1 = input("What was the first card you saw? ")
