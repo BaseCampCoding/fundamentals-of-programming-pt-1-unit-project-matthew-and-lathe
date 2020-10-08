@@ -67,9 +67,7 @@ def main_memory_game(difficulty: int):
     if difficulty == 0 or difficulty == 1:
         print("Here we go...")
         sleep(2)
-        pack1 = [shuffle_cards1[0], shuffle_cards2[0]]
-        for cards in pack1:
-            print(cards, end=" ")
+        print(shuffle_cards1[0], shuffle_cards2[0])
         sleep(2)
         doclear.clear()
         print("[Example: ace of spades, queen of hearts]")
@@ -95,14 +93,9 @@ def main_memory_game(difficulty: int):
     if difficulty == 2 or difficulty == 3:
         print("Here we go...")
         sleep(2)
-        pack2 = [
-            shuffle_cards1[0],
-            shuffle_cards2[0],
-            shuffle_cards3[0],
-            shuffle_cards4[0],
-        ]
-        for cards in pack2:
-            print(cards, end=" ")
+        print(
+            shuffle_cards1[0], shuffle_cards2[0], shuffle_cards3[0], shuffle_cards4[0]
+        )
         sleep(2)
         doclear.clear()
         print("[Example: ace of spades, queen of hearts]")
