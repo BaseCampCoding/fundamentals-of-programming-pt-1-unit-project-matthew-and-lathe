@@ -33,8 +33,8 @@ def replace_cards (new_deck: list, hands: list, display_hands: list, marks: list
 
 def evalutate_hand (hands: list) -> int:
     """This function will determine how valuable a hand it, and return that integer
-    pairs are worth 2 times their card's value, triples are worth 3 times their card's
-    value, flushes are worth their highest card value times 4, and royal flushes are worth
+    pairs are worth 20 times their card's value, triples are worth 30 times their card's
+    value, flushes are worth their highest card value times 40, and royal flushes are worth
     more than anything else possible"""
     #list for keeping track of how many of each card a player has (for pairs and triples)
     #templet_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -91,11 +91,11 @@ def evalutate_hand (hands: list) -> int:
                 temp_value = counts.index(i) + 1
                 break
         if has_pair == True:
-            value += temp_value * 2
+            value += temp_value * 20
         elif has_triple == True:
-            value += temp_value * 3
+            value += temp_value * 30
         elif has_flush == True:
-            value += temp_value * 4
+            value += temp_value * 40
         return value
 
 def dealer_choices (value: int, hands: list, difficulty: int) -> list:
@@ -110,7 +110,8 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
             if randint(1, 4) == 1:
                 return [1, 2, 3]
             else:
-                return [randint(1, 3)]
+                ran = randint(1, 3)
+                return [ran]
     else:
         return []
 

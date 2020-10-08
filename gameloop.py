@@ -3,6 +3,12 @@ import doclear
 from random import randint
 from time import sleep
 
+def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
+def prCyan(skk): print("\033[96m {}\033[00m" .format(skk))
+# def check_suit (suit: str) -> bool:
+#     """"Returns true if the suit is Diamond or Heart, and false
+#     if it is Club or Spades"""
+#     return suit == "♦" or suit == "♥"
 
 def show_cards(d_hand: list, p_hand: list) -> None:
     """Simply prints out the player and dealer's hands"""
@@ -10,13 +16,13 @@ def show_cards(d_hand: list, p_hand: list) -> None:
     zipped = zip(*card_split)
     print("Dealer:")
     for elems in zipped:
-        print("".join(elems))
+        prRed("".join(elems))
     print()
     card_split = [card.split("\n") for card in p_hand]
     zipped = zip(*card_split)
     print("Player:")
     for elems in zipped:
-        print("".join(elems))
+        prCyan("".join(elems))
 
 
 def add_to_hand(
