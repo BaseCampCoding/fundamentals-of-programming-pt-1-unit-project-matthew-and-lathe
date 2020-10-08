@@ -36,14 +36,24 @@ def choose_dealer(money: int):
     difficulty_selection = input("Choose your dealer with their corresponding number:")
     if doclear.RepresentsInt(difficulty_selection) == True:
         difficulty_selection = int(difficulty_selection)
-    while doclear.RepresentsInt(difficulty_selection) == False or (
-        difficulty_selection < 0 or difficulty_selection > 3
-    ):
+    if difficulty_selection == 0 and money < 10:
+        difficulty_selection = -1
+    elif difficulty_selection == 1 and money < 25:
+        difficulty_selection = -1
+    elif difficulty_selection == 2 and money < 50:
+        difficulty_selection = -1
+    elif difficulty_selection == 3 and money < 100:
+        difficulty_selection = -1
+    elif difficulty_selection == 4 and money < 1000:
+        print("Not yet, you have got to get to $1000 first!")
+        difficulty_selection = -1
+    while doclear.RepresentsInt(difficulty_selection) == False or (difficulty_selection < 0 or difficulty_selection > 3):
         print("Please enter value between 0-3, and a dealer with a minimum bet you can meet.")
-        difficulty_selection = input(
-            "Choose your dealer with their corresponding number:"
-        )
-
+        difficulty_selection = input("Choose your dealer with their corresponding number:")
+        if doclear.RepresentsInt(difficulty_selection) == True:
+            difficulty_selection = int(difficulty_selection)
+        else:
+            continue
         #these if-elif s are for making sure the player meets the minimum bet,
         #or for them to leave the casino
         if difficulty_selection == 0 and money < 10:
