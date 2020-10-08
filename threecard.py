@@ -203,9 +203,9 @@ def three_card_poker (difficulty: int) -> int:
     while player_choice != 'go':
         show_cards(display_dealer_hands, display_hands, 2, 3)
         print("-------------------------------------------------------------------------")
-        cards.colored_text("Pairs beat a random hand, Three of a Kind beats a pair, a Flush", 1, False)
-        cards.colored_text("(three consecutive cards) beat Three of a kind, and a Royal Flush", 1, False)
-        cards.colored_text("trumps all. Flushes, Royal or not, must share suit among all three.", 1, False)
+        cards.colored_text("Pairs beat a random hand, Three of a Kind beats a pair, a Flush", 1)
+        cards.colored_text("(three consecutive cards) beat Three of a kind, and a Royal Flush", 1)
+        cards.colored_text("trumps all. Flushes, Royal or not, must share suit among all three.", 1)
         print("-------------------------------------------------------------------------")
         print(" Which card do you want to give up? (enter 'one', 'two', or 'three')")
         print(" You can enter 'one', 'two', or 'three' again if you want to cancel")
@@ -220,22 +220,22 @@ def three_card_poker (difficulty: int) -> int:
             player_choice = player_choice.lower()
 
         if player_choice == "one" and 1 in marks:
-            cards.colored_text("Card will no longer be sent into the deck.", 1, False)
+            cards.colored_text("Card will no longer be sent into the deck.", 1)
             marks.remove(1)
         elif player_choice == "one" and not 1 in marks:
-            cards.colored_text("Card will be sent into the deck.", 0, False)
+            cards.colored_text("Card will be sent into the deck.", 0)
             marks.append(1)
         elif player_choice == "two" and not 2 in marks:
-            cards.colored_text("Card will be sent into the deck.", 0, False)
+            cards.colored_text("Card will be sent into the deck.", 0)
             marks.append(2)
         elif player_choice == "two" and 2 in marks:
-            cards.colored_text("Card will no longer be sent into the deck.", 1, False)
+            cards.colored_text("Card will no longer be sent into the deck.", 1)
             marks.remove(2)
         elif player_choice == "three" and not 3 in marks:
-            cards.colored_text("Card will be sent into the deck.", 0, False)
+            cards.colored_text("Card will be sent into the deck.", 0)
             marks.append(3)
         elif player_choice == "three" and 3 in marks:
-            cards.colored_text("Card will no longer be sent into the deck.", 1, False)
+            cards.colored_text("Card will no longer be sent into the deck.", 1)
             marks.remove(3)
         elif player_choice == "go":
             break
