@@ -13,19 +13,19 @@ def hello_player():
     #     #  #        #     #  #        #    #     #    #    #     #  #        #    #
     #####    #######  #     #  #######  #     #    ######    #     #  #######  #     #    
     """
-    colored_text(bigwelcome, 0, False)
+    colored_text(bigwelcome, 0)
     mission_statement = """
     You have entered the casino with $100.
     Your goal is to turn that into $1000 dollars by playing blackjack.
     Good luck.
     """
-    colored_text(mission_statement, 0, False)
+    colored_text(mission_statement, 0)
     input("Press any key to play ")
     doclear.clear()
 
 
 def choose_dealer(money: int):
-    colored_text(table_string, 5, True)
+    colored_text(table_string, 5)
     characters = [
         [
             "Billy",
@@ -45,16 +45,16 @@ def choose_dealer(money: int):
         ],
     ]
     # Prints colored name then description of character
-    colored_text(characters[0][0], 2, False)
+    colored_text(characters[0][0], 2)
     print(characters[0][1])
     print(" ")
-    colored_text(characters[1][0], 4, False)
+    colored_text(characters[1][0], 4)
     print(characters[1][1])
     print(" ")
-    colored_text(characters[2][0], 0, False)
+    colored_text(characters[2][0], 0)
     print(characters[2][1])
     print(" ")
-    colored_text(characters[3][0], 1, False)
+    colored_text(characters[3][0], 1)
     print(characters[3][1])
 
     difficulty_selection = input("Choose your dealer with their corresponding number:")
@@ -99,23 +99,20 @@ def choose_dealer(money: int):
         elif difficulty_selection == 4 and money < 1000:
             print("Not yet, you have got to get to $1000 first!")
     if difficulty_selection == (0):
-        colored_text("[Billy: Get ready to eat it!]", 2, False)
+        colored_text("[Billy: Get ready to eat it!]", 2)
     if difficulty_selection == (1):
         colored_text(
             "[Karen: I’m sorry that people are so jealous of me but I can’t help it that I’m popular.]",
             4,
-            False,
         )
     if difficulty_selection == (2):
         colored_text(
-            "[Lathe: I'm not conceited. Conceit is a fault and I have no faults.]",
-            0,
-            False,
+            "[Lathe: I'm not conceited. Conceit is a fault and I have no faults.]", 0
         )
     if difficulty_selection == (3):
-        colored_text("[Matt: So you have chosen death.]", 1, False)
+        colored_text("[Matt: So you have chosen death.]", 1)
     if difficulty_selection == (4):
-        colored_text("Thanks for coming, hope to see you again!", 4, False)
+        colored_text("Thanks for coming, hope to see you again!", 4)
     return difficulty_selection
 
 
