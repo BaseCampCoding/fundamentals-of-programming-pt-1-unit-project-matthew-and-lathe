@@ -46,6 +46,12 @@ def evalutate_hand (hands: list) -> int:
     jack = False
     queen = False
     king = False
+    #these are for keeping up with whether we have a valid flush
+    spades = 0
+    clubs = 0
+    diamonds = 0
+    hearts = 0
+
     value = 0
     for i in hands:
         if i[1] == 'J':
@@ -64,12 +70,22 @@ def evalutate_hand (hands: list) -> int:
             temp = templet_list.index(i[1])
             counts[temp] += 1
             value += temp + 2
-
+        #♣, ♦, ♥, ♠
+        if i[0] == "♠":
+            spades += 1
+        elif i[0] == "♣":
+            clubs += 1
+        elif i[0] == "♦":
+            diamonds += 1
+        elif i[0] == "♥":
+            hearts += 1
     has_seen = 0
     #stores what value the pair, triple, or what items are in a flush
     temp_value = 0
     if jack == True and queen == True and king == True:
-        return 100000
+        #this final check is to be sure they are of the same suit
+        if clubs == 3 or spades == 3 or diamonds == 3 or hearts == 3:
+            return 100000
     else:
         for i in counts:
             if i == 1 and has_seen == 0:
@@ -97,7 +113,9 @@ def evalutate_hand (hands: list) -> int:
         elif has_triple == True:
             value += temp_value * 300
         elif has_flush == True:
-            value += temp_value * 4000
+            #this final check is to be sure they are of the same suit
+            if clubs == 3 or spades == 3 or diamonds == 3 or hearts == 3:
+                value += temp_value * 4000
     return value
 
 def dealer_choices (value: int, hands: list, difficulty: int) -> list:
@@ -160,6 +178,7 @@ def three_card_poker (difficulty: int) -> int:
     trade in cards from their hand. Finally, they compare hands, and the one with a higher
     value wins. If they have equal values, it is a tie, and they get their bets back.
     """
+    clear()
     new_deck = cards.make_new_deck()
     hands = []
     display_hands = []
@@ -183,12 +202,16 @@ def three_card_poker (difficulty: int) -> int:
     marks = []
     while player_choice != 'go':
         show_cards(display_dealer_hands, display_hands, 2, 3)
-        print("-------------------------------------------------------------------")
-        print("Which card do you want to give up? (enter 'one', 'two', or 'three')")
-        print("You can enter 'one', 'two', or 'three' again if you want to cancel")
-        print("giving it up.")
-        print("Once you make your choices, enter 'go' to continue.")
-        print("-------------------------------------------------------------------")
+        print("-------------------------------------------------------------------------")
+        cards.colored_text("Pairs beat a random hand, Three of a Kind beats a pair, a Flush", 1, False)
+        cards.colored_text("(three consecutive cards) beat Three of a kind, and a Royal Flush", 1, False)
+        cards.colored_text("trumps all. Flushes, Royal or not, must share suit among all three.", 1, False)
+        print("-------------------------------------------------------------------------")
+        print(" Which card do you want to give up? (enter 'one', 'two', or 'three')")
+        print(" You can enter 'one', 'two', or 'three' again if you want to cancel")
+        print(" giving it up.")
+        print(" Once you make your choices, enter 'go' to continue.")
+        print("-------------------------------------------------------------------------")
         player_choice = input()
         player_choice = player_choice.lower()
         while player_choice != "one" and player_choice != "two" and player_choice != "three" and player_choice != "go":
@@ -197,22 +220,22 @@ def three_card_poker (difficulty: int) -> int:
             player_choice = player_choice.lower()
 
         if player_choice == "one" and 1 in marks:
-            print("Card will no longer be sent into the deck.")
+            cards.colored_text("Card will no longer be sent into the deck.", 1, False)
             marks.remove(1)
         elif player_choice == "one" and not 1 in marks:
-            print("Card will be sent into the deck.")
+            cards.colored_text("Card will be sent into the deck.", 0, False)
             marks.append(1)
         elif player_choice == "two" and not 2 in marks:
-            print("Card will be sent into the deck.")
+            cards.colored_text("Card will be sent into the deck.", 0, False)
             marks.append(2)
         elif player_choice == "two" and 2 in marks:
-            print("Card will no longer be sent into the deck.")
+            cards.colored_text("Card will no longer be sent into the deck.", 1, False)
             marks.remove(2)
         elif player_choice == "three" and not 3 in marks:
-            print("Card will be sent into the deck.")
+            cards.colored_text("Card will be sent into the deck.", 0, False)
             marks.append(3)
         elif player_choice == "three" and 3 in marks:
-            print("Card will no longer be sent into the deck.")
+            cards.colored_text("Card will no longer be sent into the deck.", 1, False)
             marks.remove(3)
         elif player_choice == "go":
             break
@@ -223,6 +246,7 @@ def three_card_poker (difficulty: int) -> int:
     replace_cards(new_deck, dealer_hands, real_dealer_hands, dealer_choices)
     hand_value = evalutate_hand(hands)
     dealer_hand_value = evalutate_hand(dealer_hands)
+    clear()
     show_cards(real_dealer_hands, display_hands, 3, 3)
     print(f"Dealer: {dealer_hand_value}. Player: {hand_value}")
     if hand_value > dealer_hand_value:

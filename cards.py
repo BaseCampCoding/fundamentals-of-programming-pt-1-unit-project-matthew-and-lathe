@@ -2,19 +2,36 @@ from random import shuffle
 
 # ♣, ♦, ♥, ♠
 
-def colored_text(line: str, color: int):
+def colored_text(line: str, color: int, background: int):
     """This function allows the printing out of different colored text
-    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow, 4 is for purple"""
-    if color == 0:
-        print("\033[91m {}\033[00m" .format(line))
-    elif color == 1:
-        print("\033[96m {}\033[00m" .format(line))
-    elif color == 2:
-        print("\033[92m {}\033[00m" .format(line))
-    elif color == 3:
-        print("\033[93m {}\033[00m" .format(line))
-    elif color == 4:
-        print("\033[95m {}\033[00m" .format(line))
+    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow, 4 is for purple
+    for background, False for no background, True for a colorful background"""
+    if background == False:
+        if color == 0:
+            print("\033[91m {}\033[00m" .format(line))
+        elif color == 1:
+            print("\033[96m {}\033[00m" .format(line))
+        elif color == 2:
+            print("\033[92m {}\033[00m" .format(line))
+        elif color == 3:
+            print("\033[93m {}\033[00m" .format(line))
+        elif color == 4:
+            print("\033[95m {}\033[00m" .format(line))
+        elif color == 5:
+            print("\033[91m {}\033[00m" .format(line))
+    else:
+        if color == 0:
+            print("\033[91;40m {}\033[00m" .format(line))
+        elif color == 1:
+            print("\033[96;100m {}\033[00m" .format(line))
+        elif color == 2:
+            print("\033[92;100m {}\033[00m" .format(line))
+        elif color == 3:
+            print("\033[93;44m {}\033[00m" .format(line))
+        elif color == 4:
+            print("\033[95;40m {}\033[00m" .format(line))
+        elif color == 5:
+            print("\033[91;40m {}\033[00m" .format(line))
     
 def show_cards(d_hand: list, p_hand: list, color_one: int, color_two: int) -> None:
     """Simply prints out the player and dealer's hands"""
@@ -22,13 +39,13 @@ def show_cards(d_hand: list, p_hand: list, color_one: int, color_two: int) -> No
     zipped = zip(*card_split)
     print("Dealer:")
     for elems in zipped:
-        colored_text("".join(elems), color_one)
+        colored_text("".join(elems), color_one, True)
     print()
     card_split = [card.split("\n") for card in p_hand]
     zipped = zip(*card_split)
     print("Player:")
     for elems in zipped:
-        colored_text("".join(elems), color_two)
+        colored_text("".join(elems), color_two, True)
        
 
 def make_new_deck() -> list:
