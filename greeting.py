@@ -78,6 +78,13 @@ def choose_dealer(money: int):
         difficulty_selection = -1
     elif difficulty_selection == 4 and money >= 2500:
         can_skip = True
+    elif (
+            difficulty_selection == 0
+            or difficulty_selection == 1
+            or difficulty_selection == 2
+            or difficulty_selection == 3
+        ):
+        can_skip = True
     while (
         doclear.RepresentsInt(difficulty_selection) == False
         or (difficulty_selection < 0 or difficulty_selection > 3)
