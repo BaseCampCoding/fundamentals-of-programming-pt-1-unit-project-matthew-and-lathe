@@ -60,6 +60,8 @@ def choose_dealer(money: int):
     print("Press 4 to try and exit the casino.")
     print(" ")
     print(f"Budget: ${money}")
+    if money > int(2500):
+        colored_text("Congratulations! You have earned your freedom.")
     print(" ")
     can_skip = False
     difficulty_selection = input("Choose your dealer with their corresponding number: ")
@@ -79,11 +81,11 @@ def choose_dealer(money: int):
     elif difficulty_selection == 4 and money >= 2500:
         can_skip = True
     elif (
-            difficulty_selection == 0
-            or difficulty_selection == 1
-            or difficulty_selection == 2
-            or difficulty_selection == 3
-        ):
+        difficulty_selection == 0
+        or difficulty_selection == 1
+        or difficulty_selection == 2
+        or difficulty_selection == 3
+    ):
         can_skip = True
     while (
         doclear.RepresentsInt(difficulty_selection) == False
