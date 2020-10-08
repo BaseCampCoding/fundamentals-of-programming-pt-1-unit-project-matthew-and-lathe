@@ -144,7 +144,7 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
             if randint(1, 2) != 1:
                 return [1, 2, 3]
             else:
-                return []
+                return [0]
     elif value <= 260:
         ran = randint(1, 100)
         if difficulty == 0:
@@ -155,7 +155,7 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
                 return [ran]
         elif difficulty == 1:
             if ran == 1:
-                return [1, 2 ,3]
+                return [1, 2, 3]
             elif ran > 98:
                 ran = randint(1, 3)
                 return [ran]
@@ -166,7 +166,7 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
                 ran = randint(1, 3)
                 return [ran] 
             else:
-                return []
+                return [0]
     elif value <= 660:
         ran = randint(1, 100)
         if difficulty == 0:
@@ -176,9 +176,9 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
             else:
                 return [2]
         else:
-            return []
+            return [0]
     else:
-        return []
+        return [0]
 
     
 
