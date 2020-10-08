@@ -61,7 +61,7 @@ def choose_dealer(money: int):
     print("Budget:", money, "$")
     print(" ")
 
-    difficulty_selection = input("Choose your dealer with their corresponding number:")
+    difficulty_selection = input("Choose your dealer with their corresponding number: ")
     if doclear.RepresentsInt(difficulty_selection) == True:
         difficulty_selection = int(difficulty_selection)
     if difficulty_selection == 0 and money < 10:
@@ -122,7 +122,7 @@ def choose_dealer(money: int):
 
 def get_bet(money: int, min_bet: int) -> int:
     print(f"You have ${money}")
-    bet = input(f"Please enter a bet of atleast ${min_bet}: ")
+    bet = input(f"Please enter a bet of at least ${min_bet}: ")
     is_int = doclear.RepresentsInt(bet)
     while is_int == False or int(bet) < min_bet:
         print("Invalid input.")
