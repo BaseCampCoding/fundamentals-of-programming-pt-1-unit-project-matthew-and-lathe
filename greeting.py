@@ -56,7 +56,7 @@ def choose_dealer(money: int):
     print(" ")
     colored_text(characters[3][0], 1)
     print(characters[3][1])
-
+    print("Press 4 to exit the casino.")
     print(" ")
     print(f"Budget: ${money}")
     print(" ")
