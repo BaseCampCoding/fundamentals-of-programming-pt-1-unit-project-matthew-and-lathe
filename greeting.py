@@ -44,7 +44,11 @@ def choose_dealer(money: int):
             "The man, the myth, the legend himself. Need I say more? (Min Bet: 100)",
         ],
     ]
-    print(characters)
+    colored_text(characters[0][0], 2), print(characters[0][1])
+    colored_text(characters[1][0], 4), print(characters[1][1])
+    colored_text(characters[2][0], 0), print(characters[2][1])
+    colored_text(characters[3][0], 1), print(characters[3][1])
+
     difficulty_selection = input("Choose your dealer with their corresponding number:")
     if doclear.RepresentsInt(difficulty_selection) == True:
         difficulty_selection = int(difficulty_selection)
