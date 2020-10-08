@@ -74,16 +74,12 @@ def evalutate_hand (hands: list) -> int:
         for i in counts:
             if i == 1 and has_seen == 0:
                 has_seen = 1
-                continue
             elif i == 0 and has_seen == 1:
-                has_seen = 1
-                continue
+                has_seen = 0
             elif i == 1 and has_seen == 1:
                 has_seen = 2
-                continue
             elif i == 0 and has_seen == 2:
                 has_seen = 0
-                continue
             elif i == 1 and has_seen == 2:
                 has_flush = True
                 temp_value += counts.index(i) + 1
@@ -153,7 +149,7 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
         ran = randint(1, 100)
         if difficulty == 0:
             if ran == 1:
-                ran= randint(1, 3)
+                ran = randint(1, 3)
                 return [ran]
     
 

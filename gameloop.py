@@ -122,12 +122,19 @@ def play_round(difficulty: int) -> int:
     display_hands = []
     dealer_hands = []
     #this list is only for showing the back of the dealer's hand
-    display_dealer_hands = [[], []]
+    default_card= """
+        #####
+        #♠|♥#
+        #-+-#
+        #♦|♣#
+        #####
+        """
+    display_dealer_hands = [default_card, default_card]
     #this list is specifically for showing the dealer's hand at the end of the game
     real_dealer_hands = []
     for i in range(2):
         add_to_hand(new_deck, hands, display_hands, True)
-        add_to_hand(new_deck, dealer_hands, real_dealer_hands, False)
+        add_to_hand(new_deck, dealer_hands, real_dealer_hands, True)
     
     # this section is for the player's turn
     hand_value = 0
@@ -162,8 +169,8 @@ def play_round(difficulty: int) -> int:
         if choice == False:
             break
         else:
-            add_to_hand(new_deck, dealer_hands, real_dealer_hands, False)
-            display_dealer_hands.append([])
+            add_to_hand(new_deck, dealer_hands, real_dealer_hands, True)
+            display_dealer_hands.append(default_card)
             dealer_hand_value = cards.get_hand_value(dealer_hands)
             doclear.clear()
     dealer_hand_value = cards.get_hand_value(dealer_hands)
