@@ -58,7 +58,7 @@ def choose_dealer(money: int):
     print(characters[3][1])
 
     print(" ")
-    print("Budget:", money, "$")
+    print(f"Budget: ${money}")
     print(" ")
 
     difficulty_selection = input("Choose your dealer with their corresponding number: ")
