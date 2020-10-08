@@ -16,7 +16,7 @@ def hello_player():
     colored_text(bigwelcome, 0)
     mission_statement = """
     You have entered the casino with $100.
-    Your goal is to turn that into $1000 dollars by playing blackjack.
+    Your goal is to turn that into $2500 dollars by playing blackjack.
     Good luck.
     """
     colored_text(mission_statement, 0)
@@ -73,10 +73,10 @@ def choose_dealer(money: int):
         difficulty_selection = -1
     elif difficulty_selection == 3 and money < 100:
         difficulty_selection = -1
-    elif difficulty_selection == 4 and money < 1000:
-        print("Not yet, you have got to get to $1000 first!")
+    elif difficulty_selection == 4 and money < 2500:
+        print("Not yet, you have got to get to $2500 first!")
         difficulty_selection = -1
-    elif difficulty_selection == 4 and money >= 1000:
+    elif difficulty_selection == 4 and money >= 2500:
         can_skip = True
     while doclear.RepresentsInt(difficulty_selection) == False or (
         difficulty_selection < 0 or difficulty_selection > 3
@@ -103,10 +103,10 @@ def choose_dealer(money: int):
             difficulty_selection = -1
         elif difficulty_selection == 3 and money < 100:
             difficulty_selection = -1
-        elif difficulty_selection == 4 and money >= 1000:
+        elif difficulty_selection == 4 and money >= 2500:
             break
-        elif difficulty_selection == 4 and money < 1000:
-            print("Not yet, you have got to get to $1000 first!")
+        elif difficulty_selection == 4 and money < 2500:
+            print("Not yet, you have got to get to $2500 first!")
         elif difficulty_selection == 0 or difficulty_selection == 1 or difficulty_selection == 2 or difficulty_selection == 3:
             break
     if difficulty_selection == (0):
