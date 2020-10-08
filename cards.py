@@ -4,7 +4,7 @@ from random import shuffle
 
 def colored_text(line: str, color: int):
     """This function will act as a half-way point so that we can keep show_cards DRY
-    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow"""
+    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow, 4 is for yellow"""
     if color == 0:
         print("\033[91m {}\033[00m" .format(line))
     elif color == 1:
@@ -13,6 +13,8 @@ def colored_text(line: str, color: int):
         print("\033[92m {}\033[00m" .format(line))
     elif color == 3:
         print("\033[93m {}\033[00m" .format(line))
+    elif color == 4:
+        print("\033[95m {}\033[00m" .format(line))
     
 def show_cards(d_hand: list, p_hand: list, color_one: int, color_two: int) -> None:
     """Simply prints out the player and dealer's hands"""
