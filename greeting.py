@@ -61,7 +61,7 @@ def choose_dealer(money: int):
     print(" ")
     print(f"Budget: ${money}")
     if money > int(2500):
-        colored_text("Congratulations! You have earned your freedom.")
+        colored_text("Congratulations! You have earned your freedom.", 2)
     print(" ")
     can_skip = False
     difficulty_selection = input("Choose your dealer with their corresponding number: ")
