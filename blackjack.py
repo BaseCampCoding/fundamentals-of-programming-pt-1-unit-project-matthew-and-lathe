@@ -10,7 +10,7 @@ from time import sleep
 difficulty = 0
 money = 100
 greeting.hello_player()
-choice = ''
+choice = ""
 while money >= 10:
     difficulty = greeting.choose_dealer(money)
     game_mode = greeting.choose_game()
@@ -18,8 +18,8 @@ while money >= 10:
     if difficulty == 4:
         break
     doclear.clear()
-    choice = ''
-    while choice != 'leave' and money >= 10:
+    choice = ""
+    while choice != "leave" and money >= 10:
         min_bet = 0
         if difficulty == 0:
             min_bet = 10
@@ -46,9 +46,11 @@ while money >= 10:
             print("It was a tie!")
         choice = input("Enter 'leave' to pick another table or 'again' to play again: ")
         choice = choice.lower()
-        while choice != 'leave' and choice != 'again':
+        while choice != "leave" and choice != "again":
             print("Invalid input.")
-            choice = input("Enter 'leave' to pick another table or 'again' to play again: ")
+            choice = input(
+                "Enter 'leave' to pick another table or 'again' to play again: "
+            )
             choice = choice.lower()
     if money < 10:
         break

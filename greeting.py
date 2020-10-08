@@ -57,6 +57,10 @@ def choose_dealer(money: int):
     colored_text(characters[3][0], 1)
     print(characters[3][1])
 
+    print(" ")
+    print("Budget:", money, "$")
+    print(" ")
+
     difficulty_selection = input("Choose your dealer with their corresponding number:")
     if doclear.RepresentsInt(difficulty_selection) == True:
         difficulty_selection = int(difficulty_selection)
