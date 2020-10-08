@@ -2,7 +2,7 @@ import cards
 from doclear import clear
 from time import sleep
 from gameloop import add_to_hand
-from gameloop import show_cards
+from cards import show_cards
 from random import randint
 
 def replace_cards (new_deck: list, hands: list, display_hands: list, marks: list) -> None:
@@ -33,8 +33,8 @@ def replace_cards (new_deck: list, hands: list, display_hands: list, marks: list
 
 def evalutate_hand (hands: list) -> int:
     """This function will determine how valuable a hand it, and return that integer
-    pairs are worth 20 times their card's value, triples are worth 30 times their card's
-    value, flushes are worth their highest card value times 40, and royal flushes are worth
+    pairs are worth 20 times their card's value, triples are worth 300 times their card's
+    value, flushes are worth their highest card value times 4000, and royal flushes are worth
     more than anything else possible"""
     #list for keeping track of how many of each card a player has (for pairs and triples)
     #templet_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -69,7 +69,7 @@ def evalutate_hand (hands: list) -> int:
     #stores what value the pair, triple, or what items are in a flush
     temp_value = 0
     if jack == True and queen == True and king == True:
-        return 1000
+        return 100000
     else:
         for i in counts:
             if i == 1 and has_seen == 0:
@@ -93,9 +93,9 @@ def evalutate_hand (hands: list) -> int:
         if has_pair == True:
             value += temp_value * 20
         elif has_triple == True:
-            value += temp_value * 30
+            value += temp_value * 300
         elif has_flush == True:
-            value += temp_value * 40
+            value += temp_value * 4000
         return value
 
 def dealer_choices (value: int, hands: list, difficulty: int) -> list:
@@ -103,17 +103,53 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
     send out the 'marks' of what cards they wish to replace (this is represented
     through a list)"""
     templet_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    ran = 0
     if value <= 12:
         if difficulty == 0:
-            return [1, 2, 3]
-        else:
-            if randint(1, 4) == 1:
+            if randint(1, 20) != 1:
                 return [1, 2, 3]
             else:
                 ran = randint(1, 3)
                 return [ran]
-    else:
-        return []
+        else:
+            return [1, 2, 3]
+    elif value <= 40:
+        if difficulty == 0:
+            return [1, 2, 3]
+        elif difficulty == 1 or difficulty == 2:
+            if randint(1, 2) != 1:
+                return [1, 2, 3]
+            else:
+                return []
+    elif value <= 260:
+        ran = randint(1, 100)
+        if difficulty == 0:
+            if ran < 5:
+                return [1, 2, 3]
+            else:
+                ran = randint(1, 3)
+                return [ran]
+        elif difficulty == 1:
+            if ran == 1:
+                return [1, 2 ,3]
+            elif ran > 98:
+                ran = randint(1, 3)
+                return [ran]
+            else:
+                return []
+        else:
+            if ran == 1:
+                ran = randint(1, 3)
+                return [ran] 
+            else:
+                return []
+    elif value <= 660:
+        ran = randint(1, 100)
+        if difficulty == 0:
+            if ran == 1:
+                ran= randint(1, 3)
+                return [ran]
+    
 
 
 def three_card_poker (difficulty: int) -> int:
@@ -144,7 +180,7 @@ def three_card_poker (difficulty: int) -> int:
     player_choice = ''
     marks = []
     while player_choice != 'go':
-        show_cards(display_dealer_hands, display_hands)
+        show_cards(display_dealer_hands, display_hands, 0, 1)
         print("-------------------------------------------------------------------")
         print("Which card do you want to give up? (enter 'one', 'two', or 'three')")
         print("You can enter 'one', 'two', or 'three' again if you want to cancel")
@@ -185,7 +221,7 @@ def three_card_poker (difficulty: int) -> int:
     replace_cards(new_deck, dealer_hands, real_dealer_hands, dealer_choices)
     hand_value = evalutate_hand(hands)
     dealer_hand_value = evalutate_hand(dealer_hands)
-    show_cards(real_dealer_hands, display_hands)
+    show_cards(real_dealer_hands, display_hands, 0, 1)
     if hand_value > dealer_hand_value:
         return 0
     elif hand_value < dealer_hand_value:

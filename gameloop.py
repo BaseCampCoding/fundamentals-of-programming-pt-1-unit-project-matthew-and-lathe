@@ -3,28 +3,6 @@ import doclear
 from random import randint
 from time import sleep
 
-def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
-def prCyan(skk): print("\033[96m {}\033[00m" .format(skk))
-# def check_suit (suit: str) -> bool:
-#     """"Returns true if the suit is Diamond or Heart, and false
-#     if it is Club or Spades"""
-#     return suit == "♦" or suit == "♥"
-
-def show_cards(d_hand: list, p_hand: list) -> None:
-    """Simply prints out the player and dealer's hands"""
-    card_split = [card.split("\n") for card in d_hand]
-    zipped = zip(*card_split)
-    print("Dealer:")
-    for elems in zipped:
-        prRed("".join(elems))
-    print()
-    card_split = [card.split("\n") for card in p_hand]
-    zipped = zip(*card_split)
-    print("Player:")
-    for elems in zipped:
-        prCyan("".join(elems))
-
-
 def add_to_hand(
     new_deck: list, hands: list, display_hands: list, is_player: bool
 ) -> None:
@@ -151,7 +129,7 @@ def play_round(difficulty: int) -> int:
     # this section is for the player's turn
     hand_value = 0
     while hand_value <= 21:
-        show_cards(display_dealer_hands, display_hands)
+        cards.show_cards(display_dealer_hands, display_hands, 0, 1)
         print("-------------")
         print("Hit or Stand?")
         print("-------------")
@@ -172,7 +150,7 @@ def play_round(difficulty: int) -> int:
     # this section starts the dealer's turn
     dealer_hand_value = 0
     while dealer_hand_value <= 21 and hand_value <= 21:
-        show_cards(display_dealer_hands, display_hands)
+        cards.show_cards(display_dealer_hands, display_hands, 0, 1)
         char_dialogue(difficulty)
         print("Dealer is deciding...")
         sleep(4)
@@ -192,7 +170,7 @@ def play_round(difficulty: int) -> int:
         print("Dealer has busted!")
     if dealer_hand_value == hand_value:
         print("Tie!")
-    show_cards(display_dealer_hands, display_hands)
+    cards.show_cards(display_dealer_hands, display_hands, 0, 1)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
     status = 0
     if hand_value > dealer_hand_value and hand_value <= 21 and dealer_hand_value <= 21:
