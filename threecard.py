@@ -173,6 +173,13 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
             if ran == 1:
                 ran = randint(1, 3)
                 return [ran]
+            else:
+                return [2]
+        else:
+            return []
+    else:
+        return []
+
     
 
 
