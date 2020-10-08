@@ -13,13 +13,13 @@ def hello_player():
     #     #  #        #     #  #        #    #     #    #    #     #  #        #    #
     #####    #######  #     #  #######  #     #    ######    #     #  #######  #     #    
     """
-    colored_text(bigwelcome, 0, True)
+    colored_text(bigwelcome, 0, False)
     mission_statement = """
     You have entered the casino with $100.
     Your goal is to turn that into $1000 dollars by playing blackjack.
     Good luck.
     """
-    colored_text(mission_statement, 0, True)
+    colored_text(mission_statement, 0, False)
     input("Press any key to play ")
     doclear.clear()
 

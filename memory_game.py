@@ -68,8 +68,8 @@ def main_memory_game(difficulty: int):
     if difficulty == 0 or difficulty == 1:
         print("Here we go...")
         sleep(2)
-        colored_text(shuffle_cards1[0], 4)
-        colored_text(shuffle_cards2[0], 4)
+        colored_text(shuffle_cards1[0], 4, True)
+        colored_text(shuffle_cards2[0], 4, True)
         sleep(2)
         doclear.clear()
         print("[Example: ace of spades, queen of hearts]")
@@ -95,10 +95,10 @@ def main_memory_game(difficulty: int):
     if difficulty == 2 or difficulty == 3:
         print("Here we go...")
         sleep(2)
-        colored_text(shuffle_cards1[0], 4)
-        colored_text(shuffle_cards2[0], 4)
-        colored_text(shuffle_cards3[0], 4)
-        colored_text(shuffle_cards4[0], 4)
+        colored_text(shuffle_cards1[0], 4, 0)
+        colored_text(shuffle_cards2[0], 4, 0)
+        colored_text(shuffle_cards3[0], 4, 0)
+        colored_text(shuffle_cards4[0], 4, 0)
 
         sleep(2)
         doclear.clear()
