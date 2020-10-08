@@ -43,6 +43,8 @@ while money >= 10:
             print("You lost!")
             money -= bet
             if money < min_bet:
+                print("You no longer meet the minimum bet for this table.")
+                sleep(2)
                 break
         else:
             print("It was a tie!")

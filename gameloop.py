@@ -140,9 +140,9 @@ def play_round(difficulty: int) -> int:
     hand_value = 0
     while hand_value <= 21:
         cards.show_cards(display_dealer_hands, display_hands, 0, 1)
-        print("-------------")
+        cards.colored_text("-------------", 4)
         print("Hit or Stand?")
-        print("-------------")
+        cards.colored_text("-------------", 4)
         player_choice = input()
         player_choice = player_choice.lower()
         while player_choice != "hit" and player_choice != "stand":
@@ -176,11 +176,11 @@ def play_round(difficulty: int) -> int:
     dealer_hand_value = cards.get_hand_value(dealer_hands)
     doclear.clear()
     if hand_value > 21:
-        print("You have busted!")
+        cards.colored_text("You have busted!", 0)
     if dealer_hand_value > 21:
-        print("Dealer has busted!")
+        cards.colored_text("Dealer has busted!", 2)
     if dealer_hand_value == hand_value:
-        print("Tie!")
+        cards.colored_text("Tie!", 3)
     cards.show_cards(real_dealer_hands, display_hands, 1, 1)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
     status = 0
