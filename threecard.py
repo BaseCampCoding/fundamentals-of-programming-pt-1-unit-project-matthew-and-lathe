@@ -202,16 +202,16 @@ def three_card_poker (difficulty: int) -> int:
     marks = []
     while player_choice != 'go':
         show_cards(display_dealer_hands, display_hands, 2, 3)
-        print("-------------------------------------------------------------------------")
+        cards.colored_text("-------------------------------------------------------------------------", 4)
         cards.colored_text("Pairs beat a random hand, Three of a Kind beats a pair, a Flush", 1)
         cards.colored_text("(three consecutive cards) beat Three of a kind, and a Royal Flush", 1)
         cards.colored_text("trumps all. Flushes, Royal or not, must share suit among all three.", 1)
-        print("-------------------------------------------------------------------------")
+        cards.colored_text("-------------------------------------------------------------------------", 4)
         print(" Which card do you want to give up? (enter 'one', 'two', or 'three')")
         print(" You can enter 'one', 'two', or 'three' again if you want to cancel")
         print(" giving it up.")
         print(" Once you make your choices, enter 'go' to continue.")
-        print("-------------------------------------------------------------------------")
+        cards.colored_text("-------------------------------------------------------------------------", 4)
         player_choice = input()
         player_choice = player_choice.lower()
         while player_choice != "one" and player_choice != "two" and player_choice != "three" and player_choice != "go":
