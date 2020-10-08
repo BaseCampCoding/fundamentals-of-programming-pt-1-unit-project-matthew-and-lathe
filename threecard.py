@@ -51,25 +51,28 @@ def evalutate_hand (hands: list) -> int:
     clubs = 0
     diamonds = 0
     hearts = 0
-
+    #used for returning the hand's value
     value = 0
+    #used for picking out the high card
+    temp_value = 0
     for i in hands:
         if i[1] == 'J':
             jack = True
             counts[9] += 1
-            value += 11
         elif i[1] == 'Q':
             queen = True
             counts[10] += 1
-            value += 12
         elif i[1] == 'K':
             king = True
             counts[11] += 1
-            value += 13
         else:
             temp = templet_list.index(i[1])
             counts[temp] += 1
-            value += temp + 2
+        #for picking the high card
+        if i[1] == templet_list[11]:
+            print("You got a king!")
+        if templet_list.index(i[1]) + 2 > temp_value:
+            temp_value = templet_list.index(i[1]) + 2
         #♣, ♦, ♥, ♠
         if i[0] == "♠":
             spades += 1
@@ -81,7 +84,6 @@ def evalutate_hand (hands: list) -> int:
             hearts += 1
     has_seen = 0
     #stores what value the pair, triple, or what items are in a flush
-    temp_value = 0
     if jack == True and queen == True and king == True:
         #this final check is to be sure they are of the same suit
         if clubs == 3 or spades == 3 or diamonds == 3 or hearts == 3:
@@ -116,6 +118,10 @@ def evalutate_hand (hands: list) -> int:
             #this final check is to be sure they are of the same suit
             if clubs == 3 or spades == 3 or diamonds == 3 or hearts == 3:
                 value += temp_value * 4000
+        elif clubs == 3 or spades == 3 or diamonds == 3 or hearts == 3:
+            value += temp_value * 300
+        else:
+            value = temp_value
     return value
 
 def dealer_choices (value: int, hands: list, difficulty: int) -> list:
