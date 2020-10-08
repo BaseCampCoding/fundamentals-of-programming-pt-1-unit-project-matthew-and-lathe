@@ -63,10 +63,11 @@ def main_memory_game(difficulty: int):
     shuffle_cards2 = random.choice(memory_cards)
     shuffle_cards3 = random.choice(memory_cards)
     shuffle_cards4 = random.choice(memory_cards)
+    # Easy mode
     if difficulty == 0 or difficulty == 1:
         print("Here we go...")
         sleep(2)
-        print(shuffle_cards1[0], shuffle_cards2[0])
+        print(shuffle_cards1[0]), print(shuffle_cards2[0]),
         sleep(2)
         doclear.clear()
         print("[Example: ace of spades, queen of hearts]")
@@ -88,6 +89,7 @@ def main_memory_game(difficulty: int):
             return 0
         else:
             return 1
+    # Hard mode
     if difficulty == 2 or difficulty == 3:
         print("Here we go...")
         sleep(2)
