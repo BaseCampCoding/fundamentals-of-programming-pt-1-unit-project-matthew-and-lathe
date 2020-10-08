@@ -121,11 +121,14 @@ def play_round(difficulty: int) -> int:
     hands = []
     display_hands = []
     dealer_hands = []
-    display_dealer_hands = []
+    #this list is only for showing the back of the dealer's hand
+    display_dealer_hands = [[], []]
+    #this list is specifically for showing the dealer's hand at the end of the game
+    real_dealer_hands = []
     for i in range(2):
         add_to_hand(new_deck, hands, display_hands, True)
-        add_to_hand(new_deck, dealer_hands, display_dealer_hands, False)
-
+        add_to_hand(new_deck, dealer_hands, real_dealer_hands, False)
+    
     # this section is for the player's turn
     hand_value = 0
     while hand_value <= 21:
@@ -159,7 +162,8 @@ def play_round(difficulty: int) -> int:
         if choice == False:
             break
         else:
-            add_to_hand(new_deck, dealer_hands, display_dealer_hands, False)
+            add_to_hand(new_deck, dealer_hands, real_dealer_hands, False)
+            display_dealer_hands.append([])
             dealer_hand_value = cards.get_hand_value(dealer_hands)
             doclear.clear()
     dealer_hand_value = cards.get_hand_value(dealer_hands)
@@ -170,7 +174,7 @@ def play_round(difficulty: int) -> int:
         print("Dealer has busted!")
     if dealer_hand_value == hand_value:
         print("Tie!")
-    cards.show_cards(display_dealer_hands, display_hands, 0, 1)
+    cards.show_cards(real_dealer_hands, display_hands, 1, 1)
     print(f"Player: {hand_value}, Dealer: {dealer_hand_value}")
     status = 0
     if hand_value > dealer_hand_value and hand_value <= 21 and dealer_hand_value <= 21:
