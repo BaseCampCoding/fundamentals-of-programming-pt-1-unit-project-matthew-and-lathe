@@ -61,7 +61,7 @@ def choose_dealer(money: int):
     print(" ")
     print(f"Budget: ${money}")
     print(" ")
-
+    can_skip = False
     difficulty_selection = input("Choose your dealer with their corresponding number: ")
     if doclear.RepresentsInt(difficulty_selection) == True:
         difficulty_selection = int(difficulty_selection)
@@ -76,9 +76,13 @@ def choose_dealer(money: int):
     elif difficulty_selection == 4 and money < 1000:
         print("Not yet, you have got to get to $1000 first!")
         difficulty_selection = -1
+    elif difficulty_selection == 4 and money >= 1000:
+        can_skip = True
     while doclear.RepresentsInt(difficulty_selection) == False or (
         difficulty_selection < 0 or difficulty_selection > 3
-    ):
+    ) or can_skip == False:
+        if can_skip == True:
+            break
         print(
             "Please enter value between 0-3, and a dealer with a minimum bet you can meet."
         )

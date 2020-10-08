@@ -69,8 +69,6 @@ def evalutate_hand (hands: list) -> int:
             temp = templet_list.index(i[1])
             counts[temp] += 1
         #for picking the high card
-        if i[1] == templet_list[11]:
-            print("You got a king!")
         if templet_list.index(i[1]) + 2 > temp_value:
             temp_value = templet_list.index(i[1]) + 2
         #♣, ♦, ♥, ♠
@@ -254,7 +252,7 @@ def three_card_poker (difficulty: int) -> int:
     dealer_hand_value = evalutate_hand(dealer_hands)
     clear()
     show_cards(real_dealer_hands, display_hands, 3, 3)
-    print(f"Dealer: {dealer_hand_value}. Player: {hand_value}")
+    #print(f"Dealer: {dealer_hand_value}. Player: {hand_value}")
     if hand_value > dealer_hand_value:
         return 0
     elif hand_value < dealer_hand_value:

@@ -13,10 +13,10 @@ greeting.hello_player()
 choice = ""
 while money >= 10:
     difficulty = greeting.choose_dealer(money)
-    game_mode = greeting.choose_game()
-    sleep(1.5)
     if difficulty == 4:
         break
+    game_mode = greeting.choose_game()
+    sleep(1.5)
     doclear.clear()
     choice = ""
     while choice != "leave" and money >= 10:
