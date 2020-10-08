@@ -2,26 +2,31 @@ from random import shuffle
 
 # ♣, ♦, ♥, ♠
 
-def pr_red(skk): print("\033[91m {}\033[00m" .format(skk))
-def pr_cyan(skk): print("\033[96m {}\033[00m" .format(skk))
-
+def colored_text(line: str, color: int):
+    """This function will act as a half-way point so that we can keep show_cards DRY
+    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow"""
+    if color == 0:
+        print("\033[91m {}\033[00m" .format(line))
+    elif color == 1:
+        print("\033[96m {}\033[00m" .format(line))
+    elif color == 2:
+        print("\033[92m {}\033[00m" .format(line))
+    elif color == 3:
+        print("\033[93m {}\033[00m" .format(line))
+    
 def show_cards(d_hand: list, p_hand: list, color_one: int, color_two: int) -> None:
     """Simply prints out the player and dealer's hands"""
     card_split = [card.split("\n") for card in d_hand]
     zipped = zip(*card_split)
     print("Dealer:")
     for elems in zipped:
-        if color_one == 0:
-            pr_red("".join(elems))
+        colored_text("".join(elems), color_one)
     print()
     card_split = [card.split("\n") for card in p_hand]
     zipped = zip(*card_split)
     print("Player:")
     for elems in zipped:
-        if color_two == 0:
-            pr_red("".join(elems))
-        elif color_two == 1:
-            pr_cyan("".join(elems))
+        colored_text("".join(elems), color_two)
        
 
 def make_new_deck() -> list:
