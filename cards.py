@@ -3,8 +3,8 @@ from random import shuffle
 # ♣, ♦, ♥, ♠
 
 def colored_text(line: str, color: int):
-    """This function will act as a half-way point so that we can keep show_cards DRY
-    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow, 4 is for yellow"""
+    """This function allows the printing out of different colored text
+    0 is for red, 1 is for cyan, 2 is for green, 3 is for yellow, 4 is for purple"""
     if color == 0:
         print("\033[91m {}\033[00m" .format(line))
     elif color == 1:
