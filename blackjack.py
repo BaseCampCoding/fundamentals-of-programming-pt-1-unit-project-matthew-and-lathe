@@ -42,6 +42,8 @@ while money >= 10:
         elif status == 1:
             print("You lost!")
             money -= bet
+            if money < min_bet:
+                break
         else:
             print("It was a tie!")
         choice = input("Enter 'leave' to pick another table or 'again' to play again: ")
