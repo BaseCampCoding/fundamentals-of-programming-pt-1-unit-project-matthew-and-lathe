@@ -59,6 +59,6 @@ while money >= 10:
     if money < 10:
         break
 if money < 10:
-    print("Get outta here!")
+    cards.colored_text("Get outta here!", 0)
 else:
-    print("See ya later, then.")
+    cards.colored_text("See ya later, then.", 2)
