@@ -160,7 +160,7 @@ def dealer_choices (value: int, hands: list, difficulty: int) -> list:
                 ran = randint(1, 3)
                 return [ran]
             else:
-                return []
+                return [0]
         else:
             if ran == 1:
                 ran = randint(1, 3)
@@ -210,7 +210,7 @@ def three_card_poker (difficulty: int) -> int:
 
     hand_value = 0
     player_choice = ''
-    marks = []
+    marks = [0]
     while player_choice != 'go':
         show_cards(display_dealer_hands, display_hands, 2, 3)
         cards.colored_text("-------------------------------------------------------------------------", 4)
