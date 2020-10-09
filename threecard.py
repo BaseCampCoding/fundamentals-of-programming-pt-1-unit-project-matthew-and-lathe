@@ -122,7 +122,7 @@ def evalutate_hand (hands: list) -> int:
             value = temp_value
     return value
 
-def dealer_choices (value: int, hands: list, difficulty: int) -> list:
+def dealer_ai (value: int, hands: list, difficulty: int) -> list:
     """This function will determine the overall worth of the hand, and then
     send out the 'marks' of what cards they wish to replace (this is represented
     through a list)"""
@@ -254,7 +254,7 @@ def three_card_poker (difficulty: int) -> int:
         clear()
     marks = list(marks)
     replace_cards(new_deck, hands, display_hands, marks)
-    dealer_choices = (evalutate_hand(dealer_hands), dealer_hands, difficulty)
+    dealer_choices = dealer_ai(evalutate_hand(dealer_hands), dealer_hands, difficulty)
     dealer_choices = list(dealer_choices)
     replace_cards(new_deck, dealer_hands, real_dealer_hands, dealer_choices)
     hand_value = evalutate_hand(hands)
