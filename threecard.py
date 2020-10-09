@@ -255,7 +255,7 @@ def three_card_poker (difficulty: int) -> int:
     marks = list(marks)
     replace_cards(new_deck, hands, display_hands, marks)
     dealer_choices = (evalutate_hand(dealer_hands), dealer_hands, difficulty)
-    marks = list(dealer_choices)
+    dealer_choices = list(dealer_choices)
     replace_cards(new_deck, dealer_hands, real_dealer_hands, dealer_choices)
     hand_value = evalutate_hand(hands)
     dealer_hand_value = evalutate_hand(dealer_hands)
