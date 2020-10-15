@@ -250,6 +250,8 @@ def three_card_poker (difficulty: int) -> int:
             marks.remove(3)
         elif player_choice == "go":
             break
+        else:
+            print("Invalid input!")
         sleep(1)
         clear()
     marks = list(marks)
