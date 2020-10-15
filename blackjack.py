@@ -9,8 +9,9 @@ from time import sleep
 
 opensave = input("Open save file? [Y/N]: ")
 opensave.upper
+
 if opensave == "Y":
-    with open(savefile.json, w) as savefile:
+    with open("savefile.json", "w") as savefile:
         money = json.load(savefile)
 if opensave == "N":
     break
