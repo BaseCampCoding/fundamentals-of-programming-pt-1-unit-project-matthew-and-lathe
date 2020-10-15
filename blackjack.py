@@ -7,9 +7,15 @@ import threecard
 from memory_game import main_memory_game
 from time import sleep
 
-opensave = input('Open save file? [Y/N]')
+opensave = input("Open save file? [Y/N]: ")
 opensave.upper
-if opensave == 'Y':
+if opensave == "Y":
+    with open(savefile.json, w) as savefile:
+        money = json.load(savefile)
+if opensave == "N":
+    break
+else:
+    print("Please enter valid input, Y or N.")
 
 difficulty = 0
 money = 100
