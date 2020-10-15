@@ -7,6 +7,10 @@ import threecard
 from memory_game import main_memory_game
 from time import sleep
 
+opensave = input('Open save file? [Y/N]')
+opensave.upper
+if opensave == 'Y':
+
 difficulty = 0
 money = 100
 greeting.hello_player()
